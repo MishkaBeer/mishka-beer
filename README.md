@@ -1,9 +1,9 @@
 MishkaBeer
 ==========
 
-# Install
+## Install
 
-## Pre-requisites
+### Pre-requisites
 
 Required: 
 
@@ -15,7 +15,7 @@ Required:
 * [Bower](http://bower.io): Web package manager
 * [DaftMonk generator-angular-fullstack](https://github.com/DaftMonk/generator-angular-fullstack): yeoman application generator and components sub-generators
 
-## IDE / Text editor
+### IDE / Text editor
 
 You can use your favorite text editor or IDE. 
 
@@ -31,7 +31,7 @@ We use [Brackets Web editor](http://brackets.io) with the following plugins:
 * Indentator
 * AngularJS for brackets
 
-## Get the code
+### Get the code
 
 You can clone a read-only version of the GitHub repository:
 
@@ -47,7 +47,7 @@ You may have to generate a SSH key on your computer :
     
 And add the content of your public key (~/.ssh/id_rsa.pub) to your [GitHub account keys](https://github.com/settings/ssh).
 
-# Build the application
+## Build the application
 
 Install all dependencies using NPM and Bower:
 
@@ -55,25 +55,23 @@ Install all dependencies using NPM and Bower:
     npm install
     bower install
 
-# Start the application
+## Start the application
 
-Launch MongoDB database:
+### Launch MongoDB database.
     
-* Under Windows, as a service:
-
+Under Windows, as a service:
     
     ...\mongoDB\bin>mongod.exe --dbpath D:\travail\mishkabeer\mishka-beer\mongoDB\data\db
 
-* Under Debian/Ubuntu:
+Under Debian/Ubuntu:
 
-    
     sudo service mongodb start
     
-Launch grunt server:
+### Launch grunt server:
 
     grunt serve
 
-# Technical references
+## Technical references
 
 * [AngularJS API](https://docs.angularjs.org/api)
 * [socket.io](http://socket.io)
