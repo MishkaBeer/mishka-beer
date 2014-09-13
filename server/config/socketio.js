@@ -18,6 +18,7 @@ function onConnect(socket) {
   });
 
   // Insert sockets below
+  require('../api/stock/stock.socket').register(socket);
   require('../api/yeast/yeast.socket').register(socket);
   require('../api/malt/malt.socket').register(socket);
   require('../api/hop/hop.socket').register(socket);
