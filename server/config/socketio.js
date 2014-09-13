@@ -18,6 +18,9 @@ function onConnect(socket) {
   });
 
   // Insert sockets below
+  require('../api/yeast/yeast.socket').register(socket);
+  require('../api/malt/malt.socket').register(socket);
+  require('../api/hop/hop.socket').register(socket);
   require('../api/thing/thing.socket').register(socket);
 }
 
