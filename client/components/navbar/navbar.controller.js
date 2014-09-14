@@ -1,13 +1,13 @@
 'use strict';
 
 angular.module('mishkaBeerApp')
-  .controller('NavbarCtrl', function ($scope, $location, Auth) {
+  .controller('NavbarCtrl', function ($scope, $location, Auth, $translate) {
     $scope.menu = [{
-      'title': 'Home',
+      'title': 'nav-bar.home',
       'link': '/'
     },
     {
-      'title': 'Stock',
+      'title': 'nav-bar.stock',
       'link': '/stock'
     }];
 
