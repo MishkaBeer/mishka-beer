@@ -2,6 +2,9 @@
     "nav-bar"           : {
         "stock"             : "Stock",
         "home"              : "Home",
-        "brewery"           : "Brewery"
+        "brewery"           : "Brewery",
+        "hops"              : "Hops",
+        "malts"             : "Malts",
+        "yeasts"            : "Yeasts"
     }
 }

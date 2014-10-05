@@ -13,6 +13,14 @@ angular.module('mishkaBeerApp')
     {
       'title': 'nav-bar.brewery',
       'link': '/brewery'
+    },
+    {
+      'title': 'nav-bar.malts',
+      'link': '/malts'
+    },
+    {
+      'title': 'nav-bar.hops',
+      'link': '/hops'
     }];
 
     $scope.isCollapsed = true;

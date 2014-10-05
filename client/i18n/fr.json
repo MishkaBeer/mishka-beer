@@ -2,6 +2,9 @@
     "nav-bar"           : {
         "stock"             : "Stock",
         "home"              : "Acceuil",
-        "brewery"           : "Brasserie"
+        "brewery"           : "Brasserie",
+        "hops"              : "Houblons",
+        "malts"             : "Malts",
+        "yeasts"            : "Levures"
     }
 }
