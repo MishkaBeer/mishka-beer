@@ -9,6 +9,10 @@ angular.module('mishkaBeerApp')
     {
       'title': 'nav-bar.stock',
       'link': '/stock'
+    },
+    {
+      'title': 'nav-bar.brewery',
+      'link': '/brewery'
     }];
 
     $scope.isCollapsed = true;
