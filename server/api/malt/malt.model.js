@@ -5,8 +5,8 @@ var mongoose = require('mongoose'),
 
 var MaltSchema = new Schema({
   name: String,
-  info: String,
-  active: Boolean
+  ebc: String,
+  max_yield: { type: Number, max: 1, max: 100 }
 });
 
 module.exports = mongoose.model('Malt', MaltSchema);
