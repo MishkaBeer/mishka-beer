@@ -6,5 +6,9 @@
         "hops"              : "Houblons",
         "malts"             : "Malts",
         "yeasts"            : "Levures"
+    },
+    "breweryManagement.form"    : {
+        "title"            : "Gestion des brasseries",
+        "name"            : "Nom"
     }
 }

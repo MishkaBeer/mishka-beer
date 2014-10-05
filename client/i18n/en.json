@@ -6,5 +6,9 @@
         "hops"              : "Hops",
         "malts"             : "Malts",
         "yeasts"            : "Yeasts"
+    },
+    "breweryManagement.form"    : {
+        "title"            : "Brewery management",
+        "name"             : "Name"
     }
 }
