@@ -9,6 +9,13 @@
     },
     "breweryManagement.form"    : {
         "title"            : "Brewery management",
-        "name"             : "Name"
-    }
+        "addButton"            : "Add new"
+    },
+    "breweryManagement.list"    : {
+        "title"            : "Breweries list",
+        "addStorageLocation" : "Add a storage location"
+    },
+    "storageManagement.form.addButton":"Add the storage location",
+    "storageLocation.name":"Name",
+    "brewery.name":"Name"
 }

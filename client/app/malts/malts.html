@@ -5,7 +5,7 @@
     <div class="col-lg-12">
       <h1 class="page-header">Malts:</h1>
       <ul class="nav nav-tabs nav-stacked col-md-4 col-lg-4 col-sm-6" ng-repeat="malt in malts">
-        <li><a href="#" tooltip="{{malt.name}}">{{malt.name}}<button type="button" class="close" ng-click="deleteMalt(malt)">&times;</button></a>        </li>
+        <li>{{malt.name}}<button type="button" class="close" ng-click="deleteMalt(malt)">&times;</button>        </li>
       </ul>
     </div>
   </div>

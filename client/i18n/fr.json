@@ -9,6 +9,14 @@
     },
     "breweryManagement.form"    : {
         "title"            : "Gestion des brasseries",
-        "name"            : "Nom"
-    }
+        "addButton"            : "Ajouter"
+    },
+    "breweryManagement.list"    : {
+        "title"            : "Liste des brasseries",
+        "addStorageLocation" : "Ajouter un lieu de stockage"
+    },
+    "storageManagement.form.addButton":"Ajouter",
+    "storageLocation.name":"Nom",
+    "storageLocation.nameStorageLocation":"Nom du lieu de stockage",
+    "brewery.name":"Nom"
 }

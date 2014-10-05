@@ -12,6 +12,13 @@ angular.module('mishkaBeerApp')
 
   $http.get('/api/brewery').success(function(brewerys) {
     $scope.brewerys = brewerys;
+    var i;
+    for (i = 0;i<$scope.brewerys.length;i++) {
+        var brewery = $scope.brewerys[i];
+        $http.get('/api/storagelocation', {brewery:brewery}).success(function(storagelocations) {
+            brewery.storagelocations=storagelocations;
+        });
+    }
     socket.syncUpdates('brewery', $scope.brewerys);
   });
 
@@ -30,6 +37,17 @@ angular.module('mishkaBeerApp')
     $http.post('/api/brewery',$scope.brewery);
     $scope.initBrewery();
   };
+   
+ $scope.initStorageLocation = function(brewery) {
+    brewery.newStorageLocation = {name:'',brewery:brewery};
+  };
+    
+        
+  $scope.addStorageLocation = function(brewery) {
+      //$http.post('/api/storagelocation',brewery.newStorageLocation);
+      brewery.newStorageLocation = undefined;
+  }
+    
   $scope.initBrewery();
 });
 

@@ -5,6 +5,11 @@ var mongoose = require('mongoose'),
 
 var StoragelocationSchema = new Schema({
   name: String,
+  brewery: {
+       type: Schema.ObjectId,
+       ref: 'brewery',
+       required: 'Please fill brewery'
+   },
   info: String,
   active: Boolean
 });
