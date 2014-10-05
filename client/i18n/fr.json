@@ -1,6 +1,7 @@
 {
     "nav-bar"           : {
         "stock"             : "Stock",
-        "home"              : "Acceuil"
+        "home"              : "Acceuil",
+        "brewery"           : "Brasserie"
     }
 }
