@@ -16,19 +16,19 @@
         "malt" : {
             "name"  : {
                 "title"         : "Name",
-                "description"   : "Choose a name for this malt"
+                "example"       : "e.g. : Malt Carahell"
             },
             "ebc"  : {
                 "title"         : "EBC",
-                "description"   : "EBC"
+                "example"       : "e.g. : 25"
             },
             "maxyield"  : {
                 "title"         : "Max yield",
-                "description"   : "Max yield"
+                "example"       : "e.g. : 85"
             },
             "description"  : {
                 "title"         : "Description",
-                "description"   : "Malt description"
+                "example"       : "e.g. : For german beers."
             }
         }
     },

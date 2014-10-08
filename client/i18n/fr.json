@@ -9,21 +9,21 @@
     },
     "entities" : {
         "malt" : {
-            "name"  : {
+           "name"  : {
                 "title"         : "Nom",
-                "description"   : "Choisissez un nom pour ce malt"
+                "example"       : "e.g. : Malt Carahell"
             },
             "ebc"  : {
                 "title"         : "EBC",
-                "description"   : "EBC"
+                "example"       : "e.g. : 25"
             },
             "maxyield"  : {
                 "title"         : "Rendement",
-                "description"   : "Rendement"
+                "example"       : "e.g. : 85"
             },
             "description"  : {
                 "title"         : "Description",
-                "description"   : "Description du malt"
+                "example"       : "e.g. : Pour des bières allemandes."
             }
         }
     },
