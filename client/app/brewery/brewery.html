@@ -2,20 +2,32 @@
 
 <div class="container">
   <form>
-    <label translate="breweryManagement.form.title"></label>
+    <h1 class="page-header" translate="breweryManagement.form.title"></h1>
     <p class="input-group">
-      <input type="text" class="form-control" placeholder="{{'breweryManagement.form.name' | translate}}" ng-model="brewery.name">
+      <input type="text" class="form-control" placeholder="{{'brewery.name' | translate}}" ng-model="brewery.name">
       <span class="input-group-btn">
-        <button type="submit" class="btn btn-primary" ng-click="addBrewery()">TRADUCTION A FAIRE</button>
+        <button type="submit" class="btn btn-primary" ng-click="addBrewery()" translate="breweryManagement.form.addButton"></button>
       </span>
     </p>
   </form>
 
+  <label class="page-header" translate="breweryManagement.list.title"></label>
    <div class="row">
     <div class="col-lg-12">
-      <ul class="nav nav-tabs nav-stacked col-md-4 col-lg-4 col-sm-6" ng-repeat="brewery in brewerys">
-       coin coin
-        <li>{{brewery.name}}<button type="button" class="close" ng-click="deleteBrewery(brewery)">&times;</button></li>
+      <ul class="nav nav-tabs nav-stacked col-md-12 col-lg-12 col-sm-12" ng-repeat="brewery in brewerys">
+        <li>
+            {{brewery.name}}
+            <button type="button" class="close" ng-click="deleteBrewery(brewery)">&times;</button>
+            <button type="button" class="close" ng-click="initStorageLocation(brewery)"  title="{{'breweryManagement.list.addStorageLocation' | translate}}">+&nbsp;&nbsp;</button>
+        </li>
+        <li ng-show="brewery.newStorageLocation != undefined">
+            <p class="input-group">
+              <input type="text" class="form-control" placeholder="{{'storageLocation.nameStorageLocation' | translate}}" ng-model="brewery.newStorageLocation.name">
+              <span class="input-group-btn">
+                <button type="submit" class="btn btn-primary" ng-click="addStorageLocation(brewery)" translate="storageManagement.form.addButton"></button>
+              </span>
+            </p>
+        </li>
       </ul>
     </div>
   </div>
