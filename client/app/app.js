@@ -6,6 +6,7 @@ angular.module('mishkaBeerApp', [
   'ngSanitize',
   'btford.socket-io',
   'ui.router',
+  'ngGrid',
   'ui.bootstrap',
   'pascalprecht.translate'
 ])

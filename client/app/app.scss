@@ -27,3 +27,7 @@ $fa-font-path: "/bower_components/font-awesome/fonts";
 @import 'yeasts/yeasts.scss';
 @import 'modal/modal.scss';
 // endinjector
+
+.no-margin{
+    margin:0px !important;
+}

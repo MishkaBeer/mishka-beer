@@ -7,6 +7,31 @@
         "malts"             : "Malts",
         "yeasts"            : "Yeasts"
     },
+    "entities" : {
+        "actions" : {
+            "delete"    : "Delete",
+            "details"   : "Show details",
+            "edit"      : "Modify"
+        },
+        "malt" : {
+            "name"  : {
+                "title"         : "Name",
+                "description"   : "Choose a name for this malt"
+            },
+            "ebc"  : {
+                "title"         : "EBC",
+                "description"   : "EBC"
+            },
+            "maxyield"  : {
+                "title"         : "Max yield",
+                "description"   : "Max yield"
+            },
+            "description"  : {
+                "title"         : "Description",
+                "description"   : "Malt description"
+            }
+        }
+    },
     "breweryManagement.form"    : {
         "title"            : "Brewery management",
         "name"             : "Name"

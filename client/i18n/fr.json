@@ -7,6 +7,26 @@
         "malts"             : "Malts",
         "yeasts"            : "Levures"
     },
+    "entities" : {
+        "malt" : {
+            "name"  : {
+                "title"         : "Nom",
+                "description"   : "Choisissez un nom pour ce malt"
+            },
+            "ebc"  : {
+                "title"         : "EBC",
+                "description"   : "EBC"
+            },
+            "maxyield"  : {
+                "title"         : "Rendement",
+                "description"   : "Rendement"
+            },
+            "description"  : {
+                "title"         : "Description",
+                "description"   : "Description du malt"
+            }
+        }
+    },
     "breweryManagement.form"    : {
         "title"            : "Gestion des brasseries",
         "name"            : "Nom"
