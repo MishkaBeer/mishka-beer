@@ -3,13 +3,14 @@
  <div class="row">
     <div class="col-lg-12">
       <h1 class="page-header">Malts:</h1>
-      <maltedit savefunction="addMalt" malt="newMalt" clearform="true"/>
+      <maltedit savefunction="addMalt" malt="newMalt" clearform="true" ng-controller="MaltsCtrl"/>
       <ul class="nav nav-tabs nav-stacked col-md-12 col-lg-12 col-sm-12" ng-repeat="malt in malts">
         <li>
             <a href="" class="container nav-special" tooltip="{{malt.name}} : {{malt.description}}">
                 <div class="col-md-6">{{malt.name}}</div>
+                <div class="col-md-2"><p>{{getNameMaltType(malt.type) | translate}}</p></div>
                 <div class="col-md-2"><p ng-if="malt.ebc">{{'entities.malt.ebc.title' | translate}} : {{malt.ebc}}</p></div>
-                <div class="col-md-4">
+                <div class="col-md-2">
                    <button type="button" class="btn btn-default btn-sm navbar-btn pull-right no-margin" ng-click="deleteMalt(malt)" >
                        <i class="glyphicon glyphicon-trash"></i>
                    </button>

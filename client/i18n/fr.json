@@ -24,6 +24,25 @@
             "description"  : {
                 "title"         : "Description",
                 "example"       : "e.g. : Pour des bières allemandes."
+            },
+            "type" : {
+                "title"         : "Type",
+                "values" : {
+                    "sugar" : "Sucre",
+                    "malt"  : "Céréale maltée",
+                    "raw"   : "Grain cru"
+                }
+            },
+            "maxuse" : {
+                "title"         : "Usage maximum",
+                "example"       : "e.g. : 20%"
+            },
+            "mash" : {
+                "title"         : "Empâtage",
+                "values" : {
+                    "true"      : "Empâtage nécessaire",
+                    "false"     : "Pas d'empâtage"
+                }
             }
         }
     },

@@ -29,6 +29,25 @@
             "description"  : {
                 "title"         : "Description",
                 "example"       : "e.g. : For german beers."
+            },
+            "type" : {
+                "title"         : "Type",
+                "values" : {
+                    "sugar"     : "Sugar",
+                    "malt"      : "Malted grain",
+                    "raw"       : "Raw grain"
+                }
+            },
+            "maxuse" : {
+                "title"         : "Maximum use",
+                "example"       : "e.g. : 20%"
+            },
+            "mash" : {
+                "title"         : "Mash",
+                "values" : {
+                    "true"      : "Mash necessary",
+                    "fales"     : "No mash"
+                }
             }
         }
     },
