@@ -4,6 +4,15 @@ angular.module('mishkaBeerApp')
   .controller('MaltsCtrl', function ($scope, $http, socket, $translate) {
     $scope.malts = [];
     $scope.newMalt = '';
+    $scope.newMaltClass = "";
+
+    $scope.changeShowNewMalt = function() {
+        if ( $scope.newMaltClass === "") {
+            $scope.newMaltClass = "in";
+        } else {
+            $scope.newMaltClass = "";
+        }
+    }
 
      // value range for malt types
     $scope.MaltTypes = [
@@ -41,8 +50,8 @@ angular.module('mishkaBeerApp')
         return 'et ben non';
     }
 
-    this.getMaltTypes = function() { return this.MaltTypes; };
-    this.getMashNecessary = function() { return this.MashNecessary; };
+    this.getMaltTypes = function() { return $scope.MaltTypes; };
+    this.getMashNecessary = function() { return $scope.MashNecessary; };
 
     $http.get('/api/malts').success(function(malts) {
       $scope.malts = malts;

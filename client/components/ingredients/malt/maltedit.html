@@ -1,4 +1,5 @@
 <form class="form-horizontal">
+          Taille :  {{scope.MaltTypes[0]}}
     <div class="form-group">
         <div class="col-md-8">
             <label class="control-label" translate="entities.malt.name.title"></label>
@@ -10,6 +11,7 @@
             <select  class="form-control"  ng-model="malt.type" ng-options="type.code as (type.name | translate) for type in MaltTypes" ng-init="selected='malt'">
             </select>
        </div>
+
        <div class="col-md-2">
             <label class="control-label" translate="entities.malt.ebc.title"></label>
             <input type="text" class="form-control" ng-model="malt.ebc"
