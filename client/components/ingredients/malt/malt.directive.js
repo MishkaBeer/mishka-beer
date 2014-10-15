@@ -13,6 +13,7 @@ angular.module('mishkaBeerApp')
                         "edit" : true
                     }
                 }
+                scope.initdata = scope.malt;
             }
 
             scope.saveIsActive = function() {

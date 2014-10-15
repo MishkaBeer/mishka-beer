@@ -80,8 +80,26 @@ angular.module('mishkaBeerApp')
     this.getMashNecessary = function() { return $scope.MashNecessary; };
 
     $http.get('/api/malts').success(function(malts) {
+/*         for(var i in $scope.malts) {
+            console.log("trouvé avec edit");
+            if ($scope.malts[i].edit) {
+                console.log("trouvé avec edit");
+                for(var j in malts) {
+                    if (malts[j]._id === $scope.malts[i]._id) {
+                        console.log("trouvé même id");
+                        malts[j].edit=true;
+                        return;
+                    }
+                }
+            }
+        }*/
       $scope.malts = malts;
-      socket.syncUpdates('malt', $scope.malts);
+
+      socket.syncUpdates('malt', $scope.malts, function(event, item, list, oldItem) {
+        if (oldItem.edit) {
+            item.edit = true;
+        }
+      });
     });
 
     $scope.saveMalt = function($malt) {
