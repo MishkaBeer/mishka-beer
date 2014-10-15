@@ -16,28 +16,31 @@
         </div>
         <div id="collapseOne" class="panel-collapse collapse" ng-class="newMaltClass">
           <div class="panel-body">
-            <maltedit savefunction="addMalt" malt="newMalt" clearform="true" ng-controller="MaltsCtrl"/>
+            <maltedit savefunction="saveMalt" malt="newMalt" clearform="true" ng-controller="MaltsCtrl"/>
           </div>
         </div>
       </div>
-      <ul class="nav nav-tabs nav-stacked col-md-12 col-lg-12 col-sm-12" ng-repeat="malt in malts">
+      <ul class="nav nav-tabs nav-stacked col-md-12 col-lg-12 col-sm-12" ng-repeat="malt in malts | orderBy:'name'">
         <li>
-            <a href="" class="container nav-special" tooltip="{{malt.name}} : {{malt.description}}">
+            <a href="" class="container" tooltip="{{malt.name}} : {{malt.description}}">
                 <div class="col-md-6">{{malt.name}}</div>
                 <div class="col-md-2"><p>{{getNameMaltType(malt.type) | translate}}</p></div>
                 <div class="col-md-2"><p ng-if="malt.ebc">{{'entities.malt.ebc.title' | translate}} : {{malt.ebc}}</p></div>
-                <div class="col-md-2">
+                <div class="col-md-2 btn-group">
                    <button type="button" class="btn btn-default btn-sm navbar-btn pull-right no-margin" ng-click="deleteMalt(malt)" >
                        <i class="glyphicon glyphicon-trash"></i>
                    </button>
-                   <button type="button" class="btn btn-default btn-sm navbar-btn pull-right no-margin" ng-click="" >
+                   <button type="button" class="btn btn-default btn-sm navbar-btn pull-right no-margin" ng-click="editMalt(malt)">
                        <i class="glyphicon glyphicon-pencil"></i>
                    </button>
-                   <button type="button" class="btn btn-default btn-sm navbar-btn pull-right no-margin" ng-click="" >
+                   <button type="button" class="btn btn-default btn-sm navbar-btn pull-right no-margin" ng-click="showMalt(malt)">
                        <i class="glyphicon glyphicon-zoom-in"></i>
                    </button>
                 </div>
             </a>
+            <div class="panel-body" ng-if="malt.edit || malt.details">
+                <maltedit savefunction="saveMalt" malt="malt" clearform="false" ng-controller="MaltsCtrl"/>
+            </div>
         </li>
       </ul>
     </div>

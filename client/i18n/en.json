@@ -11,7 +11,9 @@
         "actions" : {
             "delete"    : "Delete",
             "details"   : "Show details",
-            "edit"      : "Modify"
+            "edit"      : "Modify",
+            "save"      : "Save",
+            "cancel"    : "Cancel"
         },
         "malt" : {
             "name"  : {

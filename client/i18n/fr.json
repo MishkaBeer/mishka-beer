@@ -8,6 +8,13 @@
         "yeasts"            : "Levures"
     },
     "entities" : {
+         "actions" : {
+            "delete"    : "Supprimer",
+            "details"   : "Détails",
+            "edit"      : "Modifier",
+            "save"      : "Enregistrer",
+            "cancel"    : "Annuler"
+        },
         "malt" : {
            "name"  : {
                 "title"         : "Nom",

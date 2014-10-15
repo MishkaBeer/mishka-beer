@@ -3,8 +3,35 @@
 angular.module('mishkaBeerApp')
   .controller('MaltsCtrl', function ($scope, $http, socket, $translate) {
     $scope.malts = [];
-    $scope.newMalt = '';
+    $scope.newMalt = {
+        "edit" : true
+    };
     $scope.newMaltClass = "";
+    $scope.currentMaltInList = null;
+
+    $scope.editMalt = function($malt) {
+        if ($scope.currentMaltInList != $malt || $malt.details) {
+            $scope.currentMaltInList = $malt;
+            $malt.edit = true;
+            $malt.details = false;
+        } else {
+            $malt.edit = false;
+            $malt.details = false;
+            $scope.currentMaltInList = null;
+        }
+    }
+
+    $scope.showMalt = function($malt) {
+        if ($scope.currentMaltInList != $malt || $malt.edit) {
+            $scope.currentMaltInList = $malt;
+            $malt.edit = false;
+            $malt.details = true;
+        } else {
+            $malt.edit = false;
+            $malt.details = false;
+            $scope.currentMaltInList = null;
+        }
+    }
 
     $scope.changeShowNewMalt = function() {
         if ( $scope.newMaltClass === "") {
@@ -47,7 +74,6 @@ angular.module('mishkaBeerApp')
                 return $scope.MaltTypes[i].name;
             }
         }
-        return 'et ben non';
     }
 
     this.getMaltTypes = function() { return $scope.MaltTypes; };
@@ -58,11 +84,15 @@ angular.module('mishkaBeerApp')
       socket.syncUpdates('malt', $scope.malts);
     });
 
-    $scope.addMalt = function($malt) {
+    $scope.saveMalt = function($malt) {
       if($malt === '') {
         return false;
       }
-      $http.post('/api/malts', $malt);
+      if ($malt._id != null) {
+        $http.put('/api/malts/' + $malt._id, $malt);
+      } else {
+        $http.post('/api/malts', $malt);
+      };
     };
 
     $scope.deleteMalt = function(malt) {

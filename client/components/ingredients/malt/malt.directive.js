@@ -3,12 +3,24 @@ angular.module('mishkaBeerApp')
         function link(scope, element, attrs, ngCtrl) {
             scope.MaltTypes = ngCtrl.getMaltTypes();
             scope.MashNecessary = ngCtrl.getMashNecessary();
+            scope.initdata = angular.copy(scope.malt);
+
             scope.save = function() {
                 //TODO gérer les erreurs
                 scope.savefunction(scope.malt);
                 if (scope.clearform) {
-                    scope.malt = '';
+                    scope.malt = {
+                        "edit" : true
+                    }
                 }
+            }
+
+            scope.saveIsActive = function() {
+                return !angular.equals(scope.malt, scope.initdata);
+            }
+
+            scope.resetData = function() {
+                scope.malt = angular.copy(scope.initdata);
             }
         }
         return {
