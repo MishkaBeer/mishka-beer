@@ -5,15 +5,26 @@ angular.module('mishkaBeerApp')
             scope.MashNecessary = ngCtrl.getMashNecessary();
             scope.initdata = angular.copy(scope.malt);
 
-            scope.save = function() {
-                //TODO gérer les erreurs
-                scope.savefunction(scope.malt);
-                if (scope.clearform) {
-                    scope.malt = {
-                        "edit" : true
+            scope.malt.$alert = false;
+
+            scope.save = function($editForm) {
+                if ($editForm.$valid) {
+                    scope.savefunction(scope.malt).error(function() {
+                        scope.malt.$alert = true;
+                    });
+                    if (scope.clearform) {
+                        scope.malt = {
+                            "$edit" : true,
+                            "name": "",
+                            "ebc": "",
+                            "maxyield": "",
+                            "maxuse": "",
+                            "description": ""
+                        }
                     }
+
+                    scope.initdata =  angular.copy(scope.malt);
                 }
-                scope.initdata = scope.malt;
             }
 
             scope.saveIsActive = function() {

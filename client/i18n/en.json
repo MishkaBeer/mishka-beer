@@ -12,10 +12,20 @@
             "delete"    : "Delete",
             "details"   : "Show details",
             "edit"      : "Modify",
-            "save"      : "Save",
+            "save"      :  {
+                "name"              : "Save",
+                "error"             : "Error!",
+                "saveimpossible"    : "An error occured on save."
+            },
+            "list"      :  {
+                "error"             : "Error!",
+                "listimpossible"    : "Impossible to get the list.",
+                "empty"             : "No element in the list."
+            },
             "cancel"    : "Cancel"
         },
         "malt" : {
+            "add" : "Add a malt",
             "name"  : {
                 "title"         : "Name",
                 "example"       : "e.g. : Malt Carahell"

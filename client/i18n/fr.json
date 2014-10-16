@@ -12,10 +12,20 @@
             "delete"    : "Supprimer",
             "details"   : "Détails",
             "edit"      : "Modifier",
-            "save"      : "Enregistrer",
+            "save"      :  {
+                "name"              : "Enregistrer",
+                "error"             : "Erreur!",
+                "saveimpossible"    : "L'enregistrement a échoué."
+            },
+            "list"      :  {
+                "error"             : "Erreur!",
+                "listimpossible"    : "Impossible de récupérer la liste.",
+                "empty"             : "Aucun élément dans la liste."
+            },
             "cancel"    : "Annuler"
         },
         "malt" : {
+            "add" : "Ajouter un malt",
            "name"  : {
                 "title"         : "Nom",
                 "example"       : "e.g. : Malt Carahell"

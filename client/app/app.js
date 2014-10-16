@@ -11,6 +11,7 @@ angular.module('mishkaBeerApp', [
   'pascalprecht.translate'
 ])
   .config(function ($stateProvider, $urlRouterProvider, $locationProvider, $httpProvider, $translateProvider) {
+
     $urlRouterProvider
       .otherwise('/');
 
@@ -29,6 +30,20 @@ angular.module('mishkaBeerApp', [
             return "en";
         }
     });
+
+    // utilities for mishkabeer
+    var $mishkabeerUtils = {
+        placeholderOnDisabled : function($text, $condition) {
+                                    if ($condition) {
+                                        console.log("condition true");
+                                        return $text;
+                                    } else {
+                                         console.log("condition false")
+                                        return "";
+                                    }
+                                }
+    }
+
   })
 
   .factory('authInterceptor', function ($rootScope, $q, $cookieStore, $location) {
