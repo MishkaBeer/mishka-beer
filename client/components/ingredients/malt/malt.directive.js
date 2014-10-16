@@ -14,20 +14,14 @@ angular.module('mishkaBeerApp')
                     });
                     if (scope.clearform) {
                         scope.malt = {
-                            "$edit" : true,
-                            "name": "",
-                            "ebc": "",
-                            "maxyield": "",
-                            "maxuse": "",
-                            "description": ""
+                            "$edit" : true
                         }
                     }
-
-                    scope.initdata =  angular.copy(scope.malt);
                 }
+                scope.initdata =  angular.copy(scope.malt);
             }
 
-            scope.saveIsActive = function() {
+            scope.maltModified = function() {
                 return !angular.equals(scope.malt, scope.initdata);
             }
 

@@ -4,12 +4,7 @@ angular.module('mishkaBeerApp')
   .controller('MaltsCtrl', function ($scope, $http, socket, $translate) {
     $scope.malts = [];
     $scope.newMalt = {
-        "$edit" : true,
-        "name": "",
-        "ebc": "",
-        "maxyield": "",
-        "maxuse": "",
-        "description": ""
+        "$edit" : true
     };
     $scope.newMaltClass = "";
     $scope.currentMaltInList = null;

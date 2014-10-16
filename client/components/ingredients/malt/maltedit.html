@@ -52,16 +52,15 @@
             <label class="control-label" translate="entities.malt.description.title"></label>
             <textarea class="form-control" name="description" rows="3"
               ng-model="malt.description"  ng-disabled="!malt.$edit"
-               placeholder="{{malt.$edit ? ('entities.malt.description.example' | translate) : ''}}">
-            </textarea>
+               placeholder="{{malt.$edit ? ('entities.malt.description.example' | translate) : ''}}"></textarea>
        </div>
     </div>
     <div class="form-group" ng-if="malt.$edit">
         <div class="col-md-12">
-           <button type="submit" class="btn btn-success" ng-disabled="!saveIsActive()">
+           <button type="submit" class="btn btn-success" ng-disabled="!maltModified()">
                <i class="glyphicon glyphicon-ok"></i> {{"entities.actions.save.name" | translate}}
            </button>
-            <button type="reset" class="btn btn-danger" ng-click="resetData()" ng-disabled="!saveIsActive()">
+            <button type="reset" class="btn btn-danger" ng-click="resetData()" ng-disabled="!maltModified()">
                <i class="glyphicon glyphicon-remove"></i> {{"entities.actions.cancel" | translate}}
             </button>
         </div>
