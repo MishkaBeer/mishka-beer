@@ -105,6 +105,7 @@ angular.module('mishkaBeerApp')
     );
 
     $scope.saveMalt = function($malt) {
+        $scope.malts.push($malt);
         if ($malt._id != null) {
             return $http.put('/api/malts/' + $malt._id, $malt);
         } else {

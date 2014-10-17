@@ -24,6 +24,30 @@
             },
             "cancel"    : "Cancel"
         },
+        "hop" : {
+            "add" : "Add a hop",
+            "name" : {
+                "title"         : "Name",
+                "example"       : "e.g. : Citra"
+            },
+            "alpharange" : {
+                "title"         : "Alpha",
+                "min" : {
+                    "example"   : "e.g. : 11"
+                },
+                "max" : {
+                    "example"   : "e.g. : 14"
+                }
+            },
+            "flavor" : {
+                "title"         : "Flavor intensity (1-10)",
+                "example"       : "e.g. : 9"
+            },
+            "description"  : {
+                "title"         : "Description",
+                "example"       : "e.g. : Green lemon."
+            }
+        },
         "malt" : {
             "add" : "Add a malt",
             "name"  : {

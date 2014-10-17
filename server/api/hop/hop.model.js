@@ -5,8 +5,12 @@ var mongoose = require('mongoose'),
 
 var HopSchema = new Schema({
   name: String,
-  info: String,
-  active: Boolean
+  alpha_range: {
+      min : {type: Number, min: 0, max: 100},
+      max : {type: Number, min: 0, max: 100}
+  },
+  flavor: { type: Number, min: 1, max: 10 },
+  description: String
 });
 
 module.exports = mongoose.model('Hop', HopSchema);

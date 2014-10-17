@@ -24,6 +24,30 @@
             },
             "cancel"    : "Annuler"
         },
+        "hop" : {
+            "add" : "Ajouter un houblon",
+            "name" : {
+                "title"         : "Nom",
+                "example"       : "e.g. : Citra"
+            },
+            "alpharange" : {
+                "title"         : "Alpha",
+                "min" : {
+                    "example"   : "e.g. : 11"
+                },
+                "max" : {
+                    "example"   : "e.g. : 14"
+                }
+            },
+            "flavor" : {
+                "title"         : "Intensité de saveur (1-10)",
+                "example"       : "e.g. : 9"
+            },
+            "description"  : {
+                "title"         : "Description",
+                "example"       : "e.g. : Citron vert."
+            }
+        },
         "malt" : {
             "add" : "Ajouter un malt",
            "name"  : {
