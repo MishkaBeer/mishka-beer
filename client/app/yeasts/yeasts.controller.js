@@ -26,7 +26,6 @@ angular.module('mishkaBeerApp')
     }
 
     $scope.showYeast = function($yeast) {
-        console.log("-- AFFICHER HOUBON");
         if ($scope.currentYeastInList != null) {
             $scope.currentYeastInList.$details = false;
         }
