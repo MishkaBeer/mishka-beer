@@ -26,10 +26,16 @@ angular.module('mishkaBeerApp')
             scope.resetData = function() {
                 for (var name in scope.initdata) {
                     if (name.indexOf("$") != 0 && name.indexOf("_") != 0) {
+                        console.log(scope.initdata[name]);
                         scope.hop[name] = scope.initdata[name];
                     }
                 }
             }
+
+            scope.$on('$destroy', function () {
+                scope.resetData();
+            });
+
         }
         return {
             templateUrl: '../components/ingredients/hop/hopedit.html',

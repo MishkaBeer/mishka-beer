@@ -26,8 +26,17 @@ angular.module('mishkaBeerApp')
             }
 
             scope.resetData = function() {
-                scope.malt = angular.copy(scope.initdata);
+                for (var name in scope.initdata) {
+                    if (name.indexOf("$") != 0 && name.indexOf("_") != 0) {
+                        scope.malt[name] = scope.initdata[name];
+                    }
+                }
             }
+
+            scope.$on('$destroy', function () {
+              scope.resetData();
+            });
+
         }
         return {
             templateUrl: '../components/ingredients/malt/maltedit.html',

@@ -121,4 +121,5 @@ angular.module('mishkaBeerApp')
       socket.unsyncUpdates('malt');
     });
 
+
   });
