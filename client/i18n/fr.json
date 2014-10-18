@@ -48,6 +48,39 @@
                 "example"       : "e.g. : Citron vert."
             }
         },
+        "yeast" : {
+            "add" : "Ajouter une levure",
+            "name" : {
+                "title"         : "Nom",
+                "example"       : "e.g. : 2124 Bohemian Lager"
+            },
+            "efficiency" : {
+                "title"         : "Efficacité",
+                "example"       : "90"
+            },
+            "temperatureoptimal": {
+                "title"         : "Optimales",
+                "min" : {
+                    "example"   : "e.g. : 12"
+                },
+                "max" : {
+                    "example"   : "e.g. : 16"
+                }
+            },
+            "temperaturemax"    : {
+                "title"         : "Températures",
+                "min" : {
+                    "example"   : "e.g. : 10"
+                },
+                "max" : {
+                    "example"   : "e.g. : 18"
+                }
+            },
+            "description"  : {
+                "title"         : "Description",
+                "example"       : "e.g. : Pour les lagers ambrées."
+            }
+        },
         "malt" : {
             "add" : "Ajouter un malt",
            "name"  : {

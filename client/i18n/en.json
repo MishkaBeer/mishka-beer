@@ -24,6 +24,39 @@
             },
             "cancel"    : "Cancel"
         },
+        "yeast" : {
+            "add" : "Add a yeast",
+            "name" : {
+                "title"         : "Name",
+                "example"       : "e.g. : 2124 Bohemian Lager"
+            },
+            "efficiency" : {
+                "title"         : "Efficiency",
+                "example"       : "90"
+            },
+            "temperatureoptimal": {
+                "title"         : "Optimal temperatures",
+                "min" : {
+                    "example"   : "e.g. : 12"
+                },
+                "max" : {
+                    "example"   : "e.g. : 16"
+                }
+            },
+            "temperaturemax"    : {
+                "title"         : "Temperatures",
+                "min" : {
+                    "example"   : "e.g. : 10"
+                },
+                "max" : {
+                    "example"   : "e.g. : 18"
+                }
+            },
+            "description"  : {
+                "title"         : "Description",
+                "example"       : "e.g. : For amber lagers."
+            }
+        },
         "hop" : {
             "add" : "Add a hop",
             "name" : {

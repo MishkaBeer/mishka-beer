@@ -31,19 +31,6 @@ angular.module('mishkaBeerApp', [
         }
     });
 
-    // utilities for mishkabeer
-    var $mishkabeerUtils = {
-        placeholderOnDisabled : function($text, $condition) {
-                                    if ($condition) {
-                                        console.log("condition true");
-                                        return $text;
-                                    } else {
-                                         console.log("condition false")
-                                        return "";
-                                    }
-                                }
-    }
-
   })
 
   .factory('authInterceptor', function ($rootScope, $q, $cookieStore, $location) {

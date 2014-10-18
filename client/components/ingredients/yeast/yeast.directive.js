@@ -1,32 +1,33 @@
 angular.module('mishkaBeerApp')
-    .directive('hopedit', function() {
+    .directive('yeastedit', function() {
         function link(scope, element, attrs, ngCtrl) {
-            scope.initdata = angular.copy(scope.hop);
+            scope.initdata = angular.copy(scope.yeast);
 
-            scope.hop.$alert = false;
+            scope.yeast.$alert = false;
 
             scope.save = function($editForm) {
                 if ($editForm.$valid) {
-                    scope.savefunction(scope.hop).error(function() {
-                        scope.hop.$alert = true;
+                    scope.savefunction(scope.yeast).error(function() {
+                        scope.yeast.$alert = true;
                     });
                     if (scope.clearform) {
-                        scope.hop = {
+                        scope.yeast = {
                             "$edit" : true
                         }
                     }
                 }
-                scope.initdata =  angular.copy(scope.hop);
+                scope.initdata =  angular.copy(scope.yeast);
             }
 
-            scope.hopModified = function() {
-                return !angular.equals(scope.hop, scope.initdata);
+            scope.yeastModified = function() {
+                return !angular.equals(scope.yeast, scope.initdata);
             }
 
             scope.resetData = function() {
                 for (var name in scope.initdata) {
                     if (name.indexOf("$") != 0 && name.indexOf("_") != 0) {
-                        scope.hop[name] = scope.initdata[name];
+                        console.log(scope.initdata[name]);
+                        scope.yeast[name] = scope.initdata[name];
                     }
                 }
             }
@@ -37,12 +38,12 @@ angular.module('mishkaBeerApp')
 
         }
         return {
-            templateUrl: '../components/ingredients/hop/hopedit.html',
+            templateUrl: '../components/ingredients/yeast/yeastedit.html',
             restrict: 'EA',
             require: "^ngController",
             scope: {
                 savefunction: '=',
-                hop: "=",
+                yeast: "=",
                 clearform: "="
             },
             link : link

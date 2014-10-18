@@ -21,6 +21,10 @@ angular.module('mishkaBeerApp')
     {
       'title': 'nav-bar.hops',
       'link': '/hops'
+    },
+    {
+      'title': 'nav-bar.yeasts',
+      'link': '/yeasts'
     }];
 
     $scope.isCollapsed = true;
