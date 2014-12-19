@@ -26,7 +26,7 @@ angular.module('mishkaBeerApp')
     }
 
     $scope.showHop = function($hop) {
-        console.log("-- AFFICHER HOUBON");
+
         if ($scope.currentHopInList != null) {
             $scope.currentHopInList.$details = false;
         }

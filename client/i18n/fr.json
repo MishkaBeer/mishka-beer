@@ -13,9 +13,11 @@
             "details"   : "Détails",
             "edit"      : "Modifier",
             "save"      :  {
-                "name"              : "Enregistrer",
-                "error"             : "Erreur!",
-                "saveimpossible"    : "L'enregistrement a échoué."
+                "name"              : "Enregistrement",
+                "errortitle"        : "Erreur!",
+                "saveimpossible"    : "Une erreur est survenue à la sauvegarde.",
+                "successtitle"      : "Bien joué!",
+                "savesuccess"       : "Enregistrement réussi."
             },
             "list"      :  {
                 "error"             : "Erreur!",

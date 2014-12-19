@@ -1,41 +1,55 @@
 angular.module('mishkaBeerApp')
     .directive('maltedit', function() {
-        function link(scope, element, attrs, ngCtrl) {
-            scope.MaltTypes = ngCtrl.getMaltTypes();
-            scope.MashNecessary = ngCtrl.getMashNecessary();
-            scope.initdata = angular.copy(scope.malt);
+        function link($scope, element, attrs, ngCtrl) {
+            $scope.MaltTypes = ngCtrl.getMaltTypes();
+            $scope.MashNecessary = ngCtrl.getMashNecessary();
+            $scope.editinfo = ngCtrl.getInfos($scope.malt._id);
 
-            scope.malt.$alert = false;
+            console.log("EditInfo " + $scope.editinfo);
+            console.log("Malt " + $scope.malt);
+
+/*            scope.MaltTypes = ngCtrl.getMaltTypes();
+            scope.MashNecessary = ngCtrl.getMashNecessary();
+
+            scope.editdata = angular.copy(scope.malt);
+            scope.initdata = angular.copy(scope.malt);
 
             scope.save = function($editForm) {
                 if ($editForm.$valid) {
-                    scope.savefunction(scope.malt).error(function() {
-                        scope.malt.$alert = true;
+                    scope.savefunction(scope.editdata)
+                    .success(function() {
+                        // success message
+                        var message = {
+                            type : "success",
+                            text : "entities.actions.save.savesuccess",
+                            title: "entities.actions.save.saveimpossible"
+                        }
+                        scope.editinfo.$messages.push(message);
+                        scope.initdata =  angular.copy(scope.editdata);
+                    })
+                    .error(function() {
+                        scope.$alert = true;
                     });
                     if (scope.clearform) {
-                        scope.malt = {
-                            "$edit" : true
+                        scope.editdata = {
                         }
                     }
                 }
-                scope.initdata =  angular.copy(scope.malt);
+
             }
 
             scope.maltModified = function() {
-                return !angular.equals(scope.malt, scope.initdata);
+                return !angular.equals(scope.initdata, scope.editdata);
             }
 
             scope.resetData = function() {
-                for (var name in scope.initdata) {
-                    if (name.indexOf("$") != 0 && name.indexOf("_") != 0) {
-                        scope.malt[name] = scope.initdata[name];
-                    }
-                }
+                scope.editdata = angular.copy(scope.initdata);
             }
 
             scope.$on('$destroy', function () {
-              scope.resetData();
+               scope.resetData();
             });
+            */
 
         }
         return {

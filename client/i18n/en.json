@@ -14,8 +14,10 @@
             "edit"      : "Modify",
             "save"      :  {
                 "name"              : "Save",
-                "error"             : "Error!",
-                "saveimpossible"    : "An error occured on save."
+                "errortitle"        : "Error!",
+                "saveimpossible"    : "An error occured on save.",
+                "successtitle"      : "Well done!",
+                "savesuccess"       : "Save done."
             },
             "list"      :  {
                 "error"             : "Error!",

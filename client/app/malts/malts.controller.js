@@ -2,53 +2,63 @@
 
 angular.module('mishkaBeerApp')
   .controller('MaltsCtrl', function ($scope, $http, socket, $translate) {
-    $scope.malts = [];
-    $scope.newMalt = {
-        "$edit" : true
+
+    //
+    // generic management of entities
+    //
+
+    $scope.editInfos = []; // array of entities infos.
+
+    /**
+     * Return infos for an element.
+     *
+     * @param {Integer} id
+     */
+    $scope.getInfos = function(id) {
+        for (var i in $scope.editInfos) {
+            if ($scope.editInfos[i].id == id) {
+                return $scope.editInfos[i];
+            }
+        }
+        return null;
+    }
+
+    this.getInfos = function(id) {
+
+        return $scope.getInfos(id);
     };
-    $scope.newMaltClass = "";
-    $scope.currentMaltInList = null;
-    $scope.errorGetList = false;
 
-    $scope.editMalt = function($malt) {
-        if ($scope.currentMaltInList != null) {
-            $scope.currentMaltInList.$edit = false;
-        }
-        if ($scope.currentMaltInList != $malt || $malt.$details) {
-            $scope.currentMaltInList = $malt;
-            $malt.$edit = true;
-            $malt.$details = false;
-        } else {
-            $malt.$edit = false;
-            $malt.$details = false;
-            $scope.currentMaltInList = null;
+    $scope.edit = function($element) {
+        var info = $scope.getInfos($element._id);
+        info.$edit = true;
+        info.$details = false;
+    }
+
+    $scope.show = function($element) {
+        var info = $scope.getInfos($element._id);
+        info.$edit = false;
+        info.$details = true;
+    }
+
+    $scope.updateInfos = function($elements) {
+        console.log("updateInfos");
+        for (var i in $elements) {
+             var oldItem = $scope.getInfos($elements[i]._id);
+            // test if oldItem is null or not, create.
+            if (!oldItem) {
+                $scope.editInfos.push({$edit : false, id : $elements[i]._id});
+            }
+            $elements[i].
         }
     }
 
-    $scope.showMalt = function($malt) {
-        if ($scope.currentMaltInList != null) {
-            $scope.currentMaltInList.$details = false;
-        }
-        if ($scope.currentMaltInList != $malt || $malt.$edit) {
-            $scope.currentMaltInList = $malt;
-            $malt.$edit = false;
-            $malt.$details = true;
-        } else {
-            $malt.$edit = false;
-            $malt.$details = false;
-            $scope.currentMaltInList = null;
-        }
-    }
 
-    $scope.changeShowNewMalt = function() {
-        if ( $scope.newMaltClass === "") {
-            $scope.newMaltClass = "in";
-        } else {
-            $scope.newMaltClass = "";
-        }
-    }
+    //
+    // Specific malts management
+    //
 
-     // value range for malt types
+    $scope.malts = [];
+
     $scope.MaltTypes = [
         {
             code : "malt",
@@ -86,29 +96,26 @@ angular.module('mishkaBeerApp')
     this.getMaltTypes = function() { return $scope.MaltTypes; };
     this.getMashNecessary = function() { return $scope.MashNecessary; };
 
+    //
+    // Malts services
+    //
     $http.get('/api/malts')
-        .success(function(malts) {
-          $scope.malts = malts;
-
-          socket.syncUpdates('malt', $scope.malts, function(event, item, list, oldItem) {
-            if (oldItem != null && oldItem.$edit) {
-                item.$edit = true;
-            }
-            if (oldItem != null && oldItem.$alert) {
-                item.$alert = true;
-            }
-          }
-        );
-    }).error(function(malts) {
+        .success(
+            function(malts) {
+                $scope.malts = malts;
+                $scope.updateInfos(malts);
+            })
+        .error(function(malts) {
             $scope.errorGetList = false;
         }
     );
 
     $scope.saveMalt = function($malt) {
-        $scope.malts.push($malt);
         if ($malt._id != null) {
+            // update
             return $http.put('/api/malts/' + $malt._id, $malt);
         } else {
+            // create
             return $http.post('/api/malts', $malt);
         };
     };
@@ -120,6 +127,5 @@ angular.module('mishkaBeerApp')
     $scope.$on('$destroy', function () {
       socket.unsyncUpdates('malt');
     });
-
 
   });
