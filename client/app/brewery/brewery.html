@@ -28,6 +28,13 @@
               </span>
             </p>
         </li>
+        <ul class="nav nav-tabs nav-stacked col-md-7 col-lg-7 col-sm-7" ng-repeat="storageLocation in storageLocations">
+
+            <li ng-show="storageLocation.brewery==brewery._id">
+                &nbsp;&nbsp;&nbsp;&nbsp;{{storageLocation.name}}
+                <button type="button" class="close" ng-click="deleteStorageLocation(storageLocation)">&times;</button>
+            </li>
+          </ul>
       </ul>
     </div>
   </div>

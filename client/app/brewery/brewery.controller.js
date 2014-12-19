@@ -4,6 +4,7 @@ angular.module('mishkaBeerApp')
 .controller('BreweryCtrl', function ($scope, $http, socket) {
   $scope.brewery;
   $scope.brewerys = [];
+  $scope.storageLocations = [];
 
 
   $scope.initBrewery = function() {
@@ -12,14 +13,12 @@ angular.module('mishkaBeerApp')
 
   $http.get('/api/brewery').success(function(brewerys) {
     $scope.brewerys = brewerys;
-    var i;
-    for (i = 0;i<$scope.brewerys.length;i++) {
-        var brewery = $scope.brewerys[i];
-        $http.get('/api/storagelocation', {brewery:brewery}).success(function(storagelocations) {
-            brewery.storagelocations=storagelocations;
-        });
-    }
     socket.syncUpdates('brewery', $scope.brewerys);
+  });
+
+  $http.get('/api/storagelocation').success(function(storageLocations) {
+    $scope.storageLocations=storageLocations;
+    socket.syncUpdates('storageLocations', $scope.storageLocations);
   });
 
   $scope.deleteBrewery = function(brewery) {
@@ -28,6 +27,7 @@ angular.module('mishkaBeerApp')
 
   $scope.$on('$destroy', function () {
     socket.unsyncUpdates('brewery');
+    socket.unsyncUpdates('storageLocations');
   });
 
   $scope.addBrewery = function() {
@@ -39,14 +39,20 @@ angular.module('mishkaBeerApp')
   };
 
  $scope.initStorageLocation = function(brewery) {
-    brewery.newStorageLocation = {name:'',brewery:brewery};
+    brewery.newStorageLocation = {name:'',brewery:brewery._id};
   };
 
 
   $scope.addStorageLocation = function(brewery) {
-      //$http.post('/api/storagelocation',brewery.newStorageLocation);
+      $http.post('/api/storagelocation',brewery.newStorageLocation);
       brewery.newStorageLocation = undefined;
   }
+
+
+  $scope.deleteStorageLocation = function(storageLocation) {
+    $http.delete('/api/storagelocation/' + storageLocation._id);
+  };
+    
 
   $scope.initBrewery();
 });
