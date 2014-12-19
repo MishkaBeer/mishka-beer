@@ -48,7 +48,7 @@ angular.module('mishkaBeerApp')
             array.push(item);
           }
 
-          cb(event, item, array);
+          cb(event, item, array, oldItem);
         });
 
         /**

@@ -1,0 +1,68 @@
+<div class="alert-danger" ng-show="malt.$alert">
+    <button type="button" class="close" data-dismiss="alert"
+      aria-hidden="true" ng-click="malt.$alert = false">&times;</button>
+    <strong>{{"entities.actions.save.error" | translate}}</strong> {{"entities.actions.save.saveimpossible" | translate}}
+</div>
+<form class="form-horizontal" name="maltform" ng-submit="save(maltform)">
+    <div class="form-group">
+        <div class="col-md-8">
+            <label class="control-label" translate="entities.malt.name.title"></label>
+            <input type="text" class="form-control" ng-model="malt.name"
+                ng-required="true"
+                placeholder="{{malt.$edit ? ('entities.malt.name.example' | translate) : ''}}" ng-disabled="!malt.$edit"/>
+       </div>
+
+       <div class="col-md-2">
+            <label class="control-label" translate="entities.malt.type.title"></label>
+            <select  class="form-control" ng-model="malt.type" ng-options="type.code as (type.name | translate) for type in MaltTypes" ng-init="selected='malt'" ng-disabled="!malt.$edit">
+            </select>
+       </div>
+
+       <div class="col-md-2">
+            <label class="control-label" translate="entities.malt.ebc.title"></label>
+            <input type="text" class="form-control" ng-model="malt.ebc"
+                placeholder="{{malt.$edit ? ('entities.malt.ebc.example' | translate) : ''}}"  ng-disabled="!malt.$edit"/>
+       </div>
+    </div>
+    <div class="form-group">
+       <div class="col-md-2">
+            <label class="control-label" translate="entities.malt.maxuse.title"></label>
+            <div class="input-group">
+                <input type="text" class="form-control" ng-model="malt.maxuse"
+                    placeholder="{{malt.$edit ? ('entities.malt.maxuse.example' | translate) : ''}}"  ng-disabled="!malt.$edit" />
+                <span class="input-group-addon">%</span>
+           </div>
+       </div>
+       <div class="col-md-2">
+            <label class="control-label" translate="entities.malt.maxyield.title"></label>
+            <div class="input-group">
+                <input type="text" class="form-control" ng-model="malt.maxyield"
+                    placeholder="{{malt.$edit ? ('entities.malt.maxyield.example' | translate) : ''}}"  ng-disabled="!malt.$edit"/>
+                <span class="input-group-addon">%</span>
+           </div>
+       </div>
+       <div class="col-md-3">
+            <label class="control-label" translate="entities.malt.mash.title"></label>
+            <select  class="form-control"  ng-model="malt.mash" ng-options="type.code as (type.name | translate) for type in MashNecessary" ng-init="selected='true'" ng-disabled="!malt.$edit">
+            </select>
+       </div>
+    </div>
+    <div class="form-group">
+       <div class="col-md-12">
+            <label class="control-label" translate="entities.malt.description.title"></label>
+            <textarea class="form-control" name="description" rows="3"
+              ng-model="malt.description"  ng-disabled="!malt.$edit"
+               placeholder="{{malt.$edit ? ('entities.malt.description.example' | translate) : ''}}"></textarea>
+       </div>
+    </div>
+    <div class="form-group" ng-if="malt.$edit">
+        <div class="col-md-12">
+           <button type="submit" class="btn btn-success" ng-disabled="!maltModified()">
+               <i class="glyphicon glyphicon-ok"></i> {{"entities.actions.save.name" | translate}}
+           </button>
+            <button class="btn btn-danger" ng-click="resetData()" ng-disabled="!maltModified()">
+               <i class="glyphicon glyphicon-remove"></i> {{"entities.actions.cancel" | translate}}
+            </button>
+        </div>
+    </div>
+</form>

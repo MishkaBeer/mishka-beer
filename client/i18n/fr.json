@@ -7,6 +7,119 @@
         "malts"             : "Malts",
         "yeasts"            : "Levures"
     },
+    "entities" : {
+         "actions" : {
+            "delete"    : "Supprimer",
+            "details"   : "Détails",
+            "edit"      : "Modifier",
+            "save"      :  {
+                "name"              : "Enregistrer",
+                "error"             : "Erreur!",
+                "saveimpossible"    : "L'enregistrement a échoué."
+            },
+            "list"      :  {
+                "error"             : "Erreur!",
+                "listimpossible"    : "Impossible de récupérer la liste.",
+                "empty"             : "Aucun élément dans la liste."
+            },
+            "cancel"    : "Annuler"
+        },
+        "hop" : {
+            "add" : "Ajouter un houblon",
+            "name" : {
+                "title"         : "Nom",
+                "example"       : "e.g. : Citra"
+            },
+            "alpharange" : {
+                "title"         : "Alpha",
+                "min" : {
+                    "example"   : "e.g. : 11"
+                },
+                "max" : {
+                    "example"   : "e.g. : 14"
+                }
+            },
+            "flavor" : {
+                "title"         : "Intensité de saveur (1-10)",
+                "example"       : "e.g. : 9"
+            },
+            "description"  : {
+                "title"         : "Description",
+                "example"       : "e.g. : Citron vert."
+            }
+        },
+        "yeast" : {
+            "add" : "Ajouter une levure",
+            "name" : {
+                "title"         : "Nom",
+                "example"       : "e.g. : 2124 Bohemian Lager"
+            },
+            "efficiency" : {
+                "title"         : "Efficacité",
+                "example"       : "90"
+            },
+            "temperatureoptimal": {
+                "title"         : "Optimales",
+                "min" : {
+                    "example"   : "e.g. : 12"
+                },
+                "max" : {
+                    "example"   : "e.g. : 16"
+                }
+            },
+            "temperaturemax"    : {
+                "title"         : "Températures",
+                "min" : {
+                    "example"   : "e.g. : 10"
+                },
+                "max" : {
+                    "example"   : "e.g. : 18"
+                }
+            },
+            "description"  : {
+                "title"         : "Description",
+                "example"       : "e.g. : Pour les lagers ambrées."
+            }
+        },
+        "malt" : {
+            "add" : "Ajouter un malt",
+           "name"  : {
+                "title"         : "Nom",
+                "example"       : "e.g. : Malt Carahell"
+            },
+            "ebc"  : {
+                "title"         : "EBC",
+                "example"       : "e.g. : 25"
+            },
+            "maxyield"  : {
+                "title"         : "Rendement",
+                "example"       : "e.g. : 85"
+            },
+            "description"  : {
+                "title"         : "Description",
+                "example"       : "e.g. : Pour des bières allemandes."
+            },
+            "type" : {
+                "title"         : "Type",
+                "values" : {
+                    "sugar" : "Sucre",
+                    "malt"  : "Céréale maltée",
+                    "raw"   : "Grain cru"
+                }
+            },
+            "maxuse" : {
+                "title"         : "Usage maximum",
+                "example"       : "e.g. : 20%"
+            },
+            "mash" : {
+                "title"         : "Empâtage",
+                "values" : {
+                    "true"      : "Empâtage nécessaire",
+                    "false"     : "Pas d'empâtage"
+                }
+            }
+        }
+    },
     "breweryManagement.form"    : {
         "title"            : "Gestion des brasseries",
         "addButton"            : "Ajouter"

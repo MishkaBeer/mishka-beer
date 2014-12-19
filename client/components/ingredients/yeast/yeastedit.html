@@ -1,0 +1,68 @@
+<div class="alert-danger" ng-show="yeast.$alert">
+    <button type="button" class="close" data-dismiss="alert"
+      aria-hidden="true" ng-click="yeast.$alert = false">&times;</button>
+    <strong>{{"entities.actions.save.error" | translate}}</strong> {{"entities.actions.save.saveimpossible" | translate}}
+</div>
+<form class="form-horizontal" name="yeastform" ng-submit="save(yeastform)">
+    <div class="form-group">
+        <div class="col-md-6">
+            <label class="control-label" translate="entities.yeast.name.title"></label>
+            <input type="text" class="form-control" ng-model="yeast.name"
+                ng-required="true"
+                placeholder="{{yeast.$edit ? ('entities.yeast.name.example' | translate) : ''}}" ng-disabled="!yeast.$edit"/>
+       </div>
+       <div class="col-md-2">
+            <label class="control-label" translate="entities.yeast.temperaturemax.title"></label>
+            <div class="form-inline">
+                    <div class="input-group">
+                    <input type="text" class="form-control" ng-model="yeast.temperature_max.min"
+                            placeholder="{{yeast.$edit ? ('entities.yeast.temperaturemax.min.example' | translate) : ''}}" ng-disabled="!yeast.$edit"/>
+                    <span class="input-group-addon">-</span>
+                    <input type="text" class="form-control" ng-model="yeast.temperature_max.max"
+                            placeholder="{{yeast.$edit ? ('entities.yeast.temperaturemax.max.example' | translate) : ''}}" ng-disabled="!yeast.$edit"/>
+                    <span class="input-group-addon">°c</span>
+                </div>
+           </div>
+       </div>
+       <div class="col-md-2">
+            <label class="control-label" translate="entities.yeast.temperatureoptimal.title"></label>
+            <div class="form-inline">
+                    <div class="input-group">
+                    <input type="text" class="form-control" ng-model="yeast.temperature_optimal.min"
+                            placeholder="{{yeast.$edit ? ('entities.yeast.temperaturemax.min.example' | translate) : ''}}" ng-disabled="!yeast.$edit"/>
+                    <span class="input-group-addon">-</span>
+                    <input type="text" class="form-control" ng-model="yeast.temperature_optimal.max"
+                            placeholder="{{yeast.$edit ? ('entities.yeast.temperatureoptimal.max.example' | translate) : ''}}" ng-disabled="!yeast.$edit"/>
+                    <span class="input-group-addon">°c</span>
+                </div>
+           </div>
+       </div>
+        <div class="col-md-2">
+            <label class="control-label" translate="entities.yeast.efficiency.title"></label>
+            <div class="input-group">
+                <input type="text" class="form-control" ng-model="yeast.efficiency"
+                    ng-required="true"
+                    placeholder="{{yeast.$edit ? ('entities.yeast.efficiency.example' | translate) : ''}}" ng-disabled="!yeast.$edit"/>
+                <span class="input-group-addon">%</span>
+            </div>
+       </div>
+    </div>
+    <div class="form-group">
+       <div class="col-md-12">
+            <label class="control-label" translate="entities.yeast.description.title"></label>
+            <textarea class="form-control" name="description" rows="3"
+              ng-model="yeast.description"  ng-disabled="!yeast.$edit"
+               placeholder="{{yeast.$edit ? ('entities.yeast.description.example' | translate) : ''}}"></textarea>
+       </div>
+    </div>
+    <div class="form-group" ng-if="yeast.$edit">
+        <div class="col-md-12">
+           <button type="submit" class="btn btn-success" ng-disabled="!yeastModified()">
+               <i class="glyphicon glyphicon-ok"></i> {{"entities.actions.save.name" | translate}}
+           </button>
+            <button class="btn btn-danger" ng-click="resetData()" ng-disabled="!yeastModified()">
+               <i class="glyphicon glyphicon-remove"></i> {{"entities.actions.cancel" | translate}}
+            </button>
+        </div>
+    </div>
+</form>

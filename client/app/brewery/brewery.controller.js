@@ -37,21 +37,23 @@ angular.module('mishkaBeerApp')
     $http.post('/api/brewery',$scope.brewery);
     $scope.initBrewery();
   };
-   
+
  $scope.initStorageLocation = function(brewery) {
     brewery.newStorageLocation = {name:'',brewery:brewery._id};
   };
-    
-        
+
+
   $scope.addStorageLocation = function(brewery) {
       $http.post('/api/storagelocation',brewery.newStorageLocation);
       brewery.newStorageLocation = undefined;
   }
 
+
   $scope.deleteStorageLocation = function(storageLocation) {
     $http.delete('/api/storagelocation/' + storageLocation._id);
   };
     
+
   $scope.initBrewery();
 });
 

@@ -6,10 +6,12 @@ angular.module('mishkaBeerApp', [
   'ngSanitize',
   'btford.socket-io',
   'ui.router',
+  'ngGrid',
   'ui.bootstrap',
   'pascalprecht.translate'
 ])
   .config(function ($stateProvider, $urlRouterProvider, $locationProvider, $httpProvider, $translateProvider) {
+
     $urlRouterProvider
       .otherwise('/');
 
@@ -28,6 +30,7 @@ angular.module('mishkaBeerApp', [
             return "en";
         }
     });
+
   })
 
   .factory('authInterceptor', function ($rootScope, $q, $cookieStore, $location) {

@@ -7,6 +7,119 @@
         "malts"             : "Malts",
         "yeasts"            : "Yeasts"
     },
+    "entities" : {
+        "actions" : {
+            "delete"    : "Delete",
+            "details"   : "Show details",
+            "edit"      : "Modify",
+            "save"      :  {
+                "name"              : "Save",
+                "error"             : "Error!",
+                "saveimpossible"    : "An error occured on save."
+            },
+            "list"      :  {
+                "error"             : "Error!",
+                "listimpossible"    : "Impossible to get the list.",
+                "empty"             : "No element in the list."
+            },
+            "cancel"    : "Cancel"
+        },
+        "yeast" : {
+            "add" : "Add a yeast",
+            "name" : {
+                "title"         : "Name",
+                "example"       : "e.g. : 2124 Bohemian Lager"
+            },
+            "efficiency" : {
+                "title"         : "Efficiency",
+                "example"       : "90"
+            },
+            "temperatureoptimal": {
+                "title"         : "Optimal temperatures",
+                "min" : {
+                    "example"   : "e.g. : 12"
+                },
+                "max" : {
+                    "example"   : "e.g. : 16"
+                }
+            },
+            "temperaturemax"    : {
+                "title"         : "Temperatures",
+                "min" : {
+                    "example"   : "e.g. : 10"
+                },
+                "max" : {
+                    "example"   : "e.g. : 18"
+                }
+            },
+            "description"  : {
+                "title"         : "Description",
+                "example"       : "e.g. : For amber lagers."
+            }
+        },
+        "hop" : {
+            "add" : "Add a hop",
+            "name" : {
+                "title"         : "Name",
+                "example"       : "e.g. : Citra"
+            },
+            "alpharange" : {
+                "title"         : "Alpha",
+                "min" : {
+                    "example"   : "e.g. : 11"
+                },
+                "max" : {
+                    "example"   : "e.g. : 14"
+                }
+            },
+            "flavor" : {
+                "title"         : "Flavor intensity (1-10)",
+                "example"       : "e.g. : 9"
+            },
+            "description"  : {
+                "title"         : "Description",
+                "example"       : "e.g. : Green lemon."
+            }
+        },
+        "malt" : {
+            "add" : "Add a malt",
+            "name"  : {
+                "title"         : "Name",
+                "example"       : "e.g. : Malt Carahell"
+            },
+            "ebc"  : {
+                "title"         : "EBC",
+                "example"       : "e.g. : 25"
+            },
+            "maxyield"  : {
+                "title"         : "Max yield",
+                "example"       : "e.g. : 85"
+            },
+            "description"  : {
+                "title"         : "Description",
+                "example"       : "e.g. : For german beers."
+            },
+            "type" : {
+                "title"         : "Type",
+                "values" : {
+                    "sugar"     : "Sugar",
+                    "malt"      : "Malted grain",
+                    "raw"       : "Raw grain"
+                }
+            },
+            "maxuse" : {
+                "title"         : "Maximum use",
+                "example"       : "e.g. : 20%"
+            },
+            "mash" : {
+                "title"         : "Mash",
+                "values" : {
+                    "true"      : "Mash necessary",
+                    "fales"     : "No mash"
+                }
+            }
+        }
+    },
     "breweryManagement.form"    : {
         "title"            : "Brewery management",
         "addButton"            : "Add new"

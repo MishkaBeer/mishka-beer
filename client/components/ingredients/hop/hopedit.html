@@ -1,0 +1,51 @@
+<div class="alert-danger" ng-show="hop.$alert">
+    <button type="button" class="close" data-dismiss="alert"
+      aria-hidden="true" ng-click="hop.$alert = false">&times;</button>
+    <strong>{{"entities.actions.save.error" | translate}}</strong> {{"entities.actions.save.saveimpossible" | translate}}
+</div>
+<form class="form-horizontal" name="hopform" ng-submit="save(hopform)">
+    <div class="form-group">
+        <div class="col-md-6">
+            <label class="control-label" translate="entities.hop.name.title"></label>
+            <input type="text" class="form-control" ng-model="hop.name"
+                ng-required="true"
+                placeholder="{{hop.$edit ? ('entities.hop.name.example' | translate) : ''}}" ng-disabled="!hop.$edit"/>
+       </div>
+       <div class="col-md-3">
+            <label class="control-label" translate="entities.hop.alpharange.title"></label>
+            <div class="form-inline">
+                    <div class="input-group">
+                    <input type="text" class="form-control" ng-model="hop.alpha_range.min"
+                            placeholder="{{hop.$edit ? ('entities.hop.alpharange.min.example' | translate) : ''}}" ng-disabled="!hop.$edit"/>
+                    <span class="input-group-addon">-</span>
+                    <input type="text" class="form-control" ng-model="hop.alpha_range.max"
+                            placeholder="{{hop.$edit ? ('entities.hop.alpharange.max.example' | translate) : ''}}" ng-disabled="!hop.$edit"/>
+                    <span class="input-group-addon">%</span>
+                </div>
+           </div>
+       </div>
+       <div class="col-md-3">
+            <label class="control-label" translate="entities.hop.flavor.title"></label>
+            <input type="text" class="form-control" ng-model="hop.flavor"
+                placeholder="{{hop.$edit ? ('entities.hop.flavor.example' | translate) : ''}}" ng-disabled="!hop.$edit"/>
+       </div>
+    </div>
+    <div class="form-group">
+       <div class="col-md-12">
+            <label class="control-label" translate="entities.hop.description.title"></label>
+            <textarea class="form-control" name="description" rows="3"
+              ng-model="hop.description"  ng-disabled="!hop.$edit"
+               placeholder="{{hop.$edit ? ('entities.hop.description.example' | translate) : ''}}"></textarea>
+       </div>
+    </div>
+    <div class="form-group" ng-if="hop.$edit">
+        <div class="col-md-12">
+           <button type="submit" class="btn btn-success" ng-disabled="!hopModified()">
+               <i class="glyphicon glyphicon-ok"></i> {{"entities.actions.save.name" | translate}}
+           </button>
+            <button class="btn btn-danger" ng-click="resetData()" ng-disabled="!hopModified()">
+               <i class="glyphicon glyphicon-remove"></i> {{"entities.actions.cancel" | translate}}
+            </button>
+        </div>
+    </div>
+</form>
