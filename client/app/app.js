@@ -68,4 +68,23 @@ angular.module('mishkaBeerApp', [
         }
       });
     });
-  });
+  }).factory('messagingService', function () {
+    var service = {};
+    service.error = "";
+    service.info = "";
+    service.warning = "";
+    service.displayError = function (error) {
+        service.error = error;
+    }
+    service.displaySystemError = function () {
+        service.error = "test";
+    }
+    service.displayInfo = function (info) {
+        service.info = info;
+    }
+    service.displayWarning = function (warning) {
+        service.warning = warning;
+    }
+    return service;
+});
+

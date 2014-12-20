@@ -82,6 +82,7 @@
           <script src="app/main/main.js"></script>
           <script src="app/malts/malts.controller.js"></script>
           <script src="app/malts/malts.js"></script>
+          <script src="app/mishkabeererror.js"></script>
           <script src="app/stock/stock.controller.js"></script>
           <script src="app/stock/stock.js"></script>
           <script src="app/yeasts/yeasts.controller.js"></script>
@@ -97,5 +98,15 @@
           <script src="components/socket/socket.service.js"></script>
           <!-- endinjector -->
         <!-- endbuild -->
+
+    <!--div ng-controller="MishkaBeerErrorCtrl" style="position:fixed;top:80px;width:300px;left:50%;margin-left:-150px;text-align:center;" class="alert alert-danger"><div  <ng-></ng->show="isDisplay()">haha</div></div-->
+    <div ng-controller="MishkaBeerErrorCtrl">
+        <div class="alert-danger" ng-show="isDisplay()">
+            <button type="button" class="close" data-dismiss="alert"
+              aria-hidden="true" ng-click="hop.$alert = false">&times;</button>
+            <strong>{{"entities.actions.save.error" | translate}}</strong> {{"entities.actions.save.saveimpossible" | translate}}
+        </div>
+    </div>
+
 </body>
 </html>

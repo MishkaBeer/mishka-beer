@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('mishkaBeerApp')
-  .controller('HopsCtrl', function ($scope, $http, socket, $translate) {
+  .controller('HopsCtrl', function ($scope, $http, socket, $translate, $injector) {
     $scope.hops = [];
     $scope.newHop = {
         "$edit" : true
@@ -9,6 +9,8 @@ angular.module('mishkaBeerApp')
     $scope.newHopClass = "";
     $scope.currentHopInList = null;
     $scope.errorGetList = false;
+    $scope.messagingService = $injector.get('messagingService');
+
 
     $scope.editHop = function($hop) {
         if ($scope.currentHopInList != null) {
@@ -52,6 +54,8 @@ angular.module('mishkaBeerApp')
     $http.get('/api/hops')
         .success(function(hops) {
           $scope.hops = hops;
+          $scope.messagingService.displaySystemError();
+
 
           socket.syncUpdates('hop', $scope.hops, function(event, item, list, oldItem) {
             if (oldItem != null && oldItem.$edit) {
