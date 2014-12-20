@@ -34,9 +34,27 @@ body { padding-top: 70px; }
     margin:0px !important;
 }
 
-.error-popup{
+.mishka-popup{
     position: fixed;
     top: 50px;
-    left: 10px;
-    right: 10px;
+    left: 50px;
+    right: 50px;
+    text-align: center;
+}
+
+.animate-show {
+  transition:all linear 0.5s;
+}
+
+
+.animate-show.ng-hide {
+  line-height: 0;
+  opacity:0;
+}
+
+.popup-close-button {
+    position:absolute;
+    right:10px;
+    top:3px;
+    font-size: 12px;
 }

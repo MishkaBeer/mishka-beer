@@ -8,7 +8,8 @@ angular.module('mishkaBeerApp', [
   'ui.router',
   'ngGrid',
   'ui.bootstrap',
-  'pascalprecht.translate'
+  'pascalprecht.translate',
+  'ngAnimate'
 ])
   .config(function ($stateProvider, $urlRouterProvider, $locationProvider, $httpProvider, $translateProvider) {
 
@@ -77,13 +78,10 @@ angular.module('mishkaBeerApp', [
         service.error = error;
     }
     service.displaySystemError = function () {
-        service.error = "test";
+        service.error = "common.errors.system";
     }
     service.displayInfo = function (info) {
         service.info = info;
-    }
-    service.displayWarning = function (warning) {
-        service.warning = warning;
     }
     return service;
 });
