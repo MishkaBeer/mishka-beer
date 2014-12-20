@@ -7,6 +7,12 @@
         "malts"             : "Malts",
         "yeasts"            : "Levures"
     },
+    "common"           : {
+        "errors"           : {
+            "system"             : "Erreur serveur"
+        }
+    },
+
     "entities" : {
          "actions" : {
             "delete"    : "Supprimer",
@@ -28,6 +34,11 @@
         },
         "hop" : {
             "add" : "Ajouter un houblon",
+            "confirm" : {
+                "add" : "Houblon ajouté",
+                "delete" : "Houblon supprimé",
+                "update" : "Houblon mis à jour"
+            },
             "name" : {
                 "title"         : "Nom",
                 "example"       : "e.g. : Citra"

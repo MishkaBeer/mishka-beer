@@ -7,6 +7,11 @@
         "malts"             : "Malts",
         "yeasts"            : "Yeasts"
     },
+     "common"           : {
+        "errors"           : {
+            "system"             : "Server error"
+        }
+    },
     "entities" : {
         "actions" : {
             "delete"    : "Delete",
@@ -61,6 +66,11 @@
         },
         "hop" : {
             "add" : "Add a hop",
+            "confirm" : {
+                "add" : "Hop added",
+                "delete" : "Hop deleted",
+                "update" : "Hop updated"
+            },
             "name" : {
                 "title"         : "Name",
                 "example"       : "e.g. : Citra"

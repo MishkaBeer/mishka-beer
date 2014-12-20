@@ -1,9 +1,12 @@
 'use strict';
 
 angular.module('mishkaBeerApp')
-    .controller('HopsCtrl', function ($scope, $http, socket, $translate) {
+
+.controller('HopsCtrl', function ($scope, $http, socket, $translate, $injector) {
         $scope.editInfos = [];
         $scope.hops = [];
+        $scope.messagingService = $injector.get('messagingService');
+
 
         /**
          * Return infos for an element.
@@ -18,6 +21,7 @@ angular.module('mishkaBeerApp')
             }
             return null;
         }
+
 
         /**
          * Function to close all
@@ -37,6 +41,7 @@ angular.module('mishkaBeerApp')
             info.$details = false;
         }
 
+
         $scope.show = function ($element) {
             var info = $scope.getInfos($element._id);
             var detailsNew = !info.$details;
@@ -46,10 +51,10 @@ angular.module('mishkaBeerApp')
         }
 
 
+
         //
         // Hops services.
         //
-
         $scope.changeShowNewHop = function () {
             if ($scope.newHopClass === "") {
                 $scope.newHopClass = "in";
@@ -60,48 +65,77 @@ angular.module('mishkaBeerApp')
 
         $scope.newHopClass = "";
 
+        $scope.errorGetList = false;
+
         $http.get('/api/hops')
             .success(function (hops) {
-
-                $scope.hops = hops;
-                $scope.editInfos = [];
-                for (var i = 0; i < hops.length; i++) {
-                    $scope.editInfos.push({
-                        $edit: false,
-                        $details: false,
-                        id: hops[i]._id
-                    });
-                }
-
-                socket.syncUpdates('hop', $scope.hops, function (event, item, list, oldItem) {
-                    if (event === "deleted") {
-                        _.remove($scope.editInfos, {
-                            id: item._id
-                        });
-                    } else if (event === "created") {
+                    $scope.hops = hops;
+                    $scope.editInfos = [];
+                    for (var i = 0; i < hops.length; i++) {
                         $scope.editInfos.push({
                             $edit: false,
                             $details: false,
-                            id: item._id
+                            id: hops[i]._id
                         });
                     }
+                }
+
+                $scope.newHopClass = "";
+
+                $http.get('/api/hops')
+                .success(function (hops) {
+
+
+                    socket.syncUpdates('hop', $scope.hops, function (event, item, list, oldItem) {
+                        if (event === "deleted") {
+                            _.remove($scope.editInfos, {
+                                id: item._id
+                            });
+                        } else if (event === "created") {
+                            $scope.editInfos.push({
+                                $edit: false,
+                                $details: false,
+                                id: item._id
+                            });
+                        }
+                    });
                 });
-            });
-
-        $scope.saveHop = function ($hop) {
-            if ($hop._id != null) {
-                return $http.put('/api/hops/' + $hop._id, $hop);
-            } else {
-                return $http.post('/api/hops', $hop);
-            };
-        };
-
-        $scope.deleteHop = function ($hop) {
-            $http.delete('/api/hops/' + $hop._id);
-        };
-
-        $scope.$on('$destroy', function () {
-            socket.unsyncUpdates('hop');
-        });
-
+        }).error(function (hops) {
+        //TODO add error message using messagingServing
     });
+
+    $scope.saveHop = function ($hop) {
+        if ($hop._id != null) {
+            return $http.put('/api/hops/' + $hop._id, $hop).
+            success(function (data, status, headers, config) {
+                $scope.messagingService.displayInfo("entities.hop.confirm.update");
+            }).
+            error(function (data, status, headers, config) {
+                $scope.messagingService.displaySystemError();
+            });
+        } else {
+            return $http.post('/api/hops', $hop).
+            success(function (data, status, headers, config) {
+                $scope.messagingService.displayInfo("entities.hop.confirm.add");
+            }).
+            error(function (data, status, headers, config) {
+                $scope.messagingService.displaySystemError();
+            });
+        };
+    };
+
+    $scope.deleteHop = function ($hop) {
+        $http.delete('/api/hops/' + $hop._id).
+        success(function (data, status, headers, config) {
+            $scope.messagingService.displayInfo("entities.hop.confirm.delete");
+        }).
+        error(function (data, status, headers, config) {
+            $scope.messagingService.displaySystemError();
+        });
+    };
+
+    $scope.$on('$destroy', function () {
+        socket.unsyncUpdates('hop');
+    });
+
+});
