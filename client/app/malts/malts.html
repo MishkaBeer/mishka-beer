@@ -1,35 +1,48 @@
 <div ng-include="'components/navbar/navbar.html'"></div>
 <div class="container">
     <div class="row">
-        <div class="col-lg-12">
+        <div class="col-md-12 col-lg-12 col-sm-12">
             <h1 class="page-header">{{'nav-bar.malts' | translate}}</h1>
-            <!-- TODO ADD PANEL -->
-        </div>
-        <!-- Panels warning & error -->
-        <ul class="nav nav-tabs nav-stacked col-md-12 col-lg-12 col-sm-12" ng-repeat="malt in malts | orderBy:'name'">
-        <li>
-            {{"EDIT : " + getInfos(malt._id).$edit}}
-            {{"DETAILS : " + getInfos(malt._id).$details}}
-             <a href="" class="container" tooltip="{{malt.name}}{{malt.description == null || malt.description.trim().length === 0 ? '' : ' : '}}{{malt.description}}">
-                <div class="col-md-6">{{malt.name}}</div>
-                <div class="col-md-2"><p>{{getNameMaltType(malt.type) | translate}}</p></div>
-                <div class="col-md-2"><p ng-if="malt.ebc">{{'entities.malt.ebc.title' | translate}} : {{malt.ebc}}</p></div>
-                <div class="col-md-2 btn-group">
-                   <button type="button" class="btn btn-default btn-sm navbar-btn pull-right no-margin" ng-click="deleteMalt(malt)" tooltip="{{'entities.actions.delete' | translate}}">
-                       <i class="glyphicon glyphicon-trash"></i>
-                   </button>
-                   <button type="button" class="btn btn-default btn-sm navbar-btn pull-right no-margin" ng-click="edit(malt)"  tooltip="{{'entities.actions.edit' | translate}}">
-                       <i class="glyphicon glyphicon-pencil"></i>
-                   </button>
-                   <button type="button" class="btn btn-default btn-sm navbar-btn pull-right no-margin" ng-click="show(malt)"  tooltip="{{'entities.actions.details' | translate}}">
-                       <i class="glyphicon glyphicon-zoom-in"></i>
-                   </button>
+            <div class="panel panel-default" id="panel1">
+                <div class="panel-heading">
+                    <div ng-click="changeShowNewMalt()">{{'entities.malt.add' | translate}}
+                        <p class="pull-right"><i class="glyphicon glyphicon glyphicon-plus" ng-if="newMaltClass===''"></i><i class="glyphicon glyphicon glyphicon-chevron-up" ng-if="newMaltClass==='in'"></i>
+                        </p>
+                    </div>
                 </div>
-            </a>
-            <div class="panel-body" >
-                <maltedit savefunction="saveMalt" malt="malt" clearform="false" ng-controller="MaltsCtrl" ng-if="getInfos(malt._id).$edit"/>
+                <div id="collapseOne" class="panel-collapse collapse" ng-class="newMaltClass">
+                    <div class="panel-body">
+                        <maltedit savefunction="saveMalt" clearform="true" edit="true" />
+                    </div>
+                </div>
             </div>
-        </li>
-      </ul>
+            <div class="alert-warning" ng-show="malts == null || malts.length === 0">{{"entities.actions.list.empty" | translate}}</div>
+            <ul class="nav nav-tabs nav-stacked col-md-12 col-lg-12 col-sm-12 no-padding" ng-repeat="malt in malts | orderBy:'name'">
+                <li>
+                    <div class="container col-md-12 col-lg-12 col-sm-12 padding-md-top padding-md-bottom list-nav-item">
+                        <div class="col-md-12 col-lg-12 col-sm-12 no-margin no-padding list-nav-txt"  ng-click="show(malt)">
+                            <div class="col-md-6 no-padding-left">{{malt.name}}</div>
+                            <div class="col-md-2">
+                                <p>{{getNameMaltType(malt.type) | translate}}</p>
+                            </div>
+                            <div class="col-md-2">
+                                <p ng-if="malt.ebc">{{'entities.malt.ebc.title' | translate}} : {{malt.ebc}}</p>
+                            </div>
+                        </div>
+                        <div class="btn-group put-right absolute">
+                            <button type="button" class="btn btn-default btn-sm navbar-btn pull-right no-margin" ng-click="deleteMalt(malt)" tooltip="{{'entities.actions.delete' | translate}}"><i class="glyphicon glyphicon-trash"></i>
+                            </button>
+                            <button type="button" class="btn btn-default btn-sm navbar-btn pull-right no-margin" ng-click="edit(malt)" tooltip="{{'entities.actions.edit' | translate}}"><i class="glyphicon glyphicon-pencil"></i>
+                            </button>
+                        </div>
+                    </div>
+                    <div class="panel-body" ng-if="getInfos(malt._id).$edit">
+                        <maltedit savefunction="saveMalt" malt="malt" clearform="false" clearform="false" edit="true" />
+                    </div>
+                    <div class="panel-body" ng-if="getInfos(malt._id).$details">
+                        <maltedit savefunction="saveMalt" malt="malt" clearform="false" clearform="false" edit="false" />
+                    </div>
+                </li>
+            </ul>
+        </div>
     </div>
-</div>

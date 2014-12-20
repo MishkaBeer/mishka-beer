@@ -19,8 +19,6 @@ angular.module('mishkaBeerApp')
             return null;
         }
 
-
-
         /**
          * Function to close all
          */
@@ -62,8 +60,6 @@ angular.module('mishkaBeerApp')
 
         $scope.newHopClass = "";
 
-        $scope.errorGetList = false;
-
         $http.get('/api/hops')
             .success(function (hops) {
 
@@ -83,17 +79,13 @@ angular.module('mishkaBeerApp')
                             id: item._id
                         });
                     } else if (event === "created") {
-                            $scope.editInfos.push({
-                                $edit: false,
-                                $details: false,
-                                id: item._id
-                            });
-                        console.log("=>>> taille editInfos ap cre : " + $scope.editInfos.length);
+                        $scope.editInfos.push({
+                            $edit: false,
+                            $details: false,
+                            id: item._id
+                        });
                     }
                 });
-                $scope.errorGetList = false;
-            }).error(function (hops) {
-                $scope.errorGetList = true;
             });
 
         $scope.saveHop = function ($hop) {

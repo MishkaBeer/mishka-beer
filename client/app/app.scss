@@ -17,6 +17,42 @@ $fa-font-path: "/bower_components/font-awesome/fonts";
 
 body { padding-top: 70px; }
 
+@mixin no-padding($side) {
+    @if $side == 'all' {
+        .no-padding {
+            padding: 0 !important;
+        }
+    } @else {
+        .no-padding-#{$side} {
+            padding-#{$side}: 0 !important;
+        }
+    }
+}
+
+@include no-padding("left");
+@include no-padding("right");
+@include no-padding("top");
+@include no-padding("bottom");
+@include no-padding("all");
+
+@mixin padding-md($side) {
+    @if $side == 'all' {
+        .padding-md {
+            padding: 10px !important;
+        }
+    } @else {
+        .padding-md-#{$side} {
+            padding-#{$side}: 10px !important;
+        }
+    }
+}
+
+@include padding-md("left");
+@include padding-md("right");
+@include padding-md("top");
+@include padding-md("bottom");
+@include padding-md("all");
+
 // Component styles are injected through grunt
 // injector
 @import 'account/login/login.scss';
@@ -33,3 +69,23 @@ body { padding-top: 70px; }
 .no-margin{
     margin:0px !important;
 }
+
+.absolute {
+  position: absolute;
+  bottom: 4px;
+  right: 8px;
+}
+
+.list-nav-item{
+    min-height: 40px;
+    cursor: pointer;
+}
+.list-nav-item:hover {
+    background-color: #e7e7e7;
+
+}
+
+.list-nav-txt{
+     min-height: 20px;
+}
+

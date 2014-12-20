@@ -12,18 +12,6 @@ angular.module('mishkaBeerApp')
 
             scope.resetData();
 
-            scope.recopyData = function ($source, $target) {
-                console.log("recopie depuis " + $source);
-                for (var name in $source) {
-                    console.log("attribut " + name);
-                    if (name.indexOf("$") != 0 && name.indexOf("_") != 0) {
-                        console.log("recopie " + name);
-                        $target[name] = $source[name];
-                    }
-                }
-            }
-
-
             scope.save = function ($editForm) {
                 if ($editForm.$valid) {
                     scope.savefunction(scope.editdata);

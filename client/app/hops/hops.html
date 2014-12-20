@@ -1,55 +1,55 @@
 <div ng-include="'components/navbar/navbar.html'"></div>
 <div class="container">
- <div class="row">
-    <div class="col-lg-12">
-      <h1 class="page-header">{{'nav-bar.hops' | translate}}</h1>
-      <div class="panel panel-default" id="panel1">
-        <div class="panel-heading">
-            <a href="" ng-click="changeShowNewHop()">
+    <div class="row">
+        <div class="col-lg-12">
+            <h1 class="page-header">{{'nav-bar.hops' | translate}}</h1>
+            <div class="panel panel-default" id="panel1">
+                <div class="panel-heading">
+                    <a href="" ng-click="changeShowNewHop()">
                 {{'entities.hop.add' | translate}}
                 <p  class="pull-right">
                     <i class="glyphicon glyphicon glyphicon-plus" ng-if="newHopClass===''"></i>
                     <i class="glyphicon glyphicon glyphicon-chevron-up" ng-if="newHopClass==='in'"></i>
                 </p>
             </a>
-        </div>
-        <div id="collapseOne" class="panel-collapse collapse" ng-class="newHopClass">
-          <div class="panel-body">
-            <hopedit savefunction="saveHop" clearform="true" edit="true"/>
-          </div>
-        </div>
-      </div>
-      <div class="alert-danger" ng-show="errorGetList">
-            <strong>{{"entities.actions.list.error" | translate}}</strong> {{"entities.actions.list.listimpossible" | translate}}
-      </div>
-      <div class="alert-warning" ng-show="hops == null || hops.length === 0">
-            {{"entities.actions.list.empty" | translate}}
-      </div>
-      <ul class="nav nav-tabs nav-stacked col-md-12 col-lg-12 col-sm-12" ng-repeat="hop in hops | orderBy:'name'">
-        <li>
-            <a href="" class="container" tooltip="{{hop.name}}{{hop.description == null || hop.description.trim().length === 0 ? '' : ' : '}}{{hop.description}}">
-                <div class="col-md-6">{{hop.name}}</div>
-                <div class="col-md-4"><p ng-if="hop.alpha_range.min != null">{{'entities.hop.alpharange.title' | translate}} : {{hop.alpha_range.min}}{{hop.alpha_range.max != null ? '-' : ''}}{{hop.alpha_range.max}}%</p></div>
-                <div class="col-md-2 btn-group">
-                   <button type="button" class="btn btn-default btn-sm navbar-btn pull-right no-margin" ng-click="deleteHop(hop)" tooltip="{{'entities.actions.delete' | translate}}">
-                       <i class="glyphicon glyphicon-trash"></i>
-                   </button>
-                   <button type="button" class="btn btn-default btn-sm navbar-btn pull-right no-margin" ng-click="edit(hop)"  tooltip="{{'entities.actions.edit' | translate}}">
-                       <i class="glyphicon glyphicon-pencil"></i>
-                   </button>
-                   <button type="button" class="btn btn-default btn-sm navbar-btn pull-right no-margin" ng-click="show(hop)"  tooltip="{{'entities.actions.details' | translate}}">
-                       <i class="glyphicon glyphicon-zoom-in"></i>
-                   </button>
                 </div>
-            </a>
-            <div class="panel-body" ng-if="getInfos(hop._id).$edit">
-                <hopedit savefunction="saveHop" hop="hop" clearform="false" edit="true"/>
+                <div id="collapseOne" class="panel-collapse collapse" ng-class="newHopClass">
+                    <div class="panel-body">
+                        <hopedit savefunction="saveHop" clearform="true" edit="true" />
+                    </div>
+                </div>
             </div>
-            <div class="panel-body" ng-if="getInfos(hop._id).$details">
-                <hopedit savefunction="saveHop" hop="hop" clearform="false" edit="false"/>
+            <div class="alert-warning" ng-show="hops == null || hops.length === 0">
+                {{"entities.actions.list.empty" | translate}}
             </div>
-        </li>
-      </ul>
+            <ul class="nav nav-tabs nav-stacked col-md-12 col-lg-12 col-sm-12 no-padding" ng-repeat="hop in hops | orderBy:'name'">
+                <li>
+                    <a class="container col-md-12 col-lg-12 col-sm-12" tooltip="{{hop.name}}{{hop.description == null || hop.description.trim().length === 0 ? '' : ' : '}}{{hop.description}}">
+                        <div class="btn-group pull-right">
+                            <button type="button" class="btn btn-default btn-sm navbar-btn pull-right no-margin" ng-click="deleteHop(hop)" tooltip="{{'entities.actions.delete' | translate}}">
+                                <i class="glyphicon glyphicon-trash"></i>
+                            </button>
+                            <button type="button" class="btn btn-default btn-sm navbar-btn pull-right no-margin" ng-click="edit(hop)" tooltip="{{'entities.actions.edit' | translate}}">
+                                <i class="glyphicon glyphicon-pencil"></i>
+                            </button>
+                            <button type="button" class="btn btn-default btn-sm navbar-btn pull-right no-margin" ng-click="show(hop)" tooltip="{{'entities.actions.details' | translate}}">
+                                <i class="glyphicon glyphicon-zoom-in"></i>
+                            </button>
+                        </div>
+                        <div class="col-md-6">{{hop.name}}</div>
+                        <div class="col-md-4">
+                            <p ng-if="hop.alpha_range.min != null">{{'entities.hop.alpharange.title' | translate}} : {{hop.alpha_range.min}}{{hop.alpha_range.max != null ? '-' : ''}}{{hop.alpha_range.max}}%</p>
+                        </div>
+
+                    </a>
+                    <div class="panel-body" ng-if="getInfos(hop._id).$edit">
+                        <hopedit savefunction="saveHop" hop="hop" clearform="false" edit="true" />
+                    </div>
+                    <div class="panel-body" ng-if="getInfos(hop._id).$details">
+                        <hopedit savefunction="saveHop" hop="hop" clearform="false" edit="false" />
+                    </div>
+                </li>
+            </ul>
+        </div>
     </div>
-  </div>
 </div>
