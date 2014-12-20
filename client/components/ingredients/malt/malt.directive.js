@@ -8,7 +8,7 @@ angular.module('mishkaBeerApp')
             console.log("EditInfo " + $scope.editinfo);
             console.log("Malt " + $scope.malt);
 
-/*            scope.MaltTypes = ngCtrl.getMaltTypes();
+            scope.MaltTypes = ngCtrl.getMaltTypes();
             scope.MashNecessary = ngCtrl.getMashNecessary();
 
             scope.editdata = angular.copy(scope.malt);
@@ -49,7 +49,7 @@ angular.module('mishkaBeerApp')
             scope.$on('$destroy', function () {
                scope.resetData();
             });
-            */
+
 
         }
         return {

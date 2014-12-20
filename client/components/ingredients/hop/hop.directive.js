@@ -1,39 +1,46 @@
 angular.module('mishkaBeerApp')
-    .directive('hopedit', function() {
+    .directive('hopedit', function () {
         function link(scope, element, attrs, ngCtrl) {
-            scope.initdata = angular.copy(scope.hop);
 
-            scope.hop.$alert = false;
-
-            scope.save = function($editForm) {
-                if ($editForm.$valid) {
-                    scope.savefunction(scope.hop).error(function() {
-                        scope.hop.$alert = true;
-                    });
-                    if (scope.clearform) {
-                        scope.hop = {
-                            "$edit" : true
-                        }
-                    }
+            scope.resetData = function () {
+                if (scope.hop == undefined) {
+                    scope.editdata = {};
+                } else {
+                    scope.editdata = angular.copy(scope.hop);
                 }
-                scope.initdata =  angular.copy(scope.hop);
             }
 
-            scope.hopModified = function() {
-                return !angular.equals(scope.hop, scope.initdata);
-            }
+            scope.resetData();
 
-            scope.resetData = function() {
-                for (var name in scope.initdata) {
+            scope.recopyData = function ($source, $target) {
+                console.log("recopie depuis " + $source);
+                for (var name in $source) {
+                    console.log("attribut " + name);
                     if (name.indexOf("$") != 0 && name.indexOf("_") != 0) {
-                        scope.hop[name] = scope.initdata[name];
+                        console.log("recopie " + name);
+                        $target[name] = $source[name];
                     }
                 }
             }
 
-            scope.$on('$destroy', function () {
-                scope.resetData();
-            });
+
+            scope.save = function ($editForm) {
+                if ($editForm.$valid) {
+                    scope.savefunction(scope.editdata);
+                    if (scope.clearform) {
+                        scope.editdata = {}
+                        scope.edit = true;
+                    }
+                }
+            }
+
+            scope.hopModified = function () {
+                if (scope.hop == undefined) {
+                    return !angular.equals({}, scope.editdata);
+                } else {
+                    return !angular.equals(scope.hop, scope.editdata);
+                }
+            }
 
         }
         return {
@@ -43,8 +50,9 @@ angular.module('mishkaBeerApp')
             scope: {
                 savefunction: '=',
                 hop: "=",
-                clearform: "="
+                clearform: "=",
+                edit: "="
             },
-            link : link
+            link: link
         };
     });

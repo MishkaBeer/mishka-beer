@@ -48,7 +48,6 @@ angular.module('mishkaBeerApp')
             if (!oldItem) {
                 $scope.editInfos.push({$edit : false, id : $elements[i]._id});
             }
-            $elements[i].
         }
     }
 

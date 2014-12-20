@@ -6,7 +6,9 @@ angular.module('mishkaBeerApp')
         $scope.messagingService = $injector.get('messagingService');
         $scope.$watch('messagingService.error', function (newValue, oldValue) {
             //$scope.messagingService.setError();
-            $scope.diplay=true;
+            if (newValue != "") {
+                $scope.diplay=true;
+            }
         });
 
         $scope.isDisplay = function() {

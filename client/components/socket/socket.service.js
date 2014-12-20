@@ -35,6 +35,7 @@ angular.module('mishkaBeerApp')
          * Syncs item creation/updates on 'model:save'
          */
         socket.on(modelName + ':save', function (item) {
+
           var oldItem = _.find(array, {_id: item._id});
           var index = array.indexOf(oldItem);
           var event = 'created';
@@ -42,9 +43,11 @@ angular.module('mishkaBeerApp')
           // replace oldItem if it exists
           // otherwise just add item to the collection
           if (oldItem) {
+            console.log("=>>> SAVE sur le model");
             array.splice(index, 1, item);
             event = 'updated';
           } else {
+            console.log("=>>> CREATE sur le model");
             array.push(item);
           }
 
@@ -56,6 +59,7 @@ angular.module('mishkaBeerApp')
          */
         socket.on(modelName + ':remove', function (item) {
           var event = 'deleted';
+          console.log("=>>> REMOVE sur le model");
           _.remove(array, {_id: item._id});
           cb(event, item, array);
         });
