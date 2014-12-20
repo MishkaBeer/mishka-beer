@@ -15,7 +15,7 @@
         </div>
         <div id="collapseOne" class="panel-collapse collapse" ng-class="newHopClass">
           <div class="panel-body">
-            <hopedit savefunction="saveHop" hop="newHop" clearform="true" ng-controller="HopsCtrl"/>
+            <hopedit savefunction="saveHop" clearform="true" edit="true"/>
           </div>
         </div>
       </div>
@@ -34,16 +34,19 @@
                    <button type="button" class="btn btn-default btn-sm navbar-btn pull-right no-margin" ng-click="deleteHop(hop)" tooltip="{{'entities.actions.delete' | translate}}">
                        <i class="glyphicon glyphicon-trash"></i>
                    </button>
-                   <button type="button" class="btn btn-default btn-sm navbar-btn pull-right no-margin" ng-click="editHop(hop)"  tooltip="{{'entities.actions.edit' | translate}}">
+                   <button type="button" class="btn btn-default btn-sm navbar-btn pull-right no-margin" ng-click="edit(hop)"  tooltip="{{'entities.actions.edit' | translate}}">
                        <i class="glyphicon glyphicon-pencil"></i>
                    </button>
-                   <button type="button" class="btn btn-default btn-sm navbar-btn pull-right no-margin" ng-click="showHop(hop)"  tooltip="{{'entities.actions.details' | translate}}">
+                   <button type="button" class="btn btn-default btn-sm navbar-btn pull-right no-margin" ng-click="show(hop)"  tooltip="{{'entities.actions.details' | translate}}">
                        <i class="glyphicon glyphicon-zoom-in"></i>
                    </button>
                 </div>
             </a>
-            <div class="panel-body" ng-if="hop.$edit || hop.$details">
-                <hopedit savefunction="saveHop" hop="hop" clearform="false" ng-controller="HopsCtrl"/>
+            <div class="panel-body" ng-if="getInfos(hop._id).$edit">
+                <hopedit savefunction="saveHop" hop="hop" clearform="false" edit="true"/>
+            </div>
+            <div class="panel-body" ng-if="getInfos(hop._id).$details">
+                <hopedit savefunction="saveHop" hop="hop" clearform="false" edit="false"/>
             </div>
         </li>
       </ul>
