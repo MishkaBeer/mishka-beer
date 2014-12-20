@@ -35,17 +35,19 @@ angular.module('mishkaBeerApp')
     }
 
     $scope.edit = function ($element) {
-        $scope.closeAll();
         var info = $scope.getInfos($element._id);
-        info.$edit = true;
+        var editNew = !info.$edit;
+        $scope.closeAll();
+        info.$edit = editNew;
         info.$details = false;
     }
 
     $scope.show = function ($element) {
-        $scope.closeAll();
         var info = $scope.getInfos($element._id);
+        var detailsNew = !info.$details;
+        $scope.closeAll();
         info.$edit = false;
-        info.$details = true;
+        info.$details = detailsNew;
     }
 
 
