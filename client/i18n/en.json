@@ -1,146 +1,157 @@
 {
-    "nav-bar"           : {
-        "stock"             : "Stock",
-        "home"              : "Home",
-        "brewery"           : "Brewery",
-        "hops"              : "Hops",
-        "malts"             : "Malts",
-        "yeasts"            : "Yeasts"
+    "nav-bar": {
+        "stock": "Stock",
+        "home": "Home",
+        "brewery": "Brewery",
+        "hops": "Hops",
+        "malts": "Malts",
+        "yeasts": "Yeasts"
     },
-     "common"           : {
-        "errors"           : {
-            "system"             : "Server error"
+    "common": {
+        "errors": {
+            "system": "Server error"
         }
     },
-    "entities" : {
-        "actions" : {
-            "delete"    : "Delete",
-            "details"   : "Show details",
-            "edit"      : "Modify",
-            "save"      :  {
-                "name"              : "Save",
-                "errortitle"        : "Error!",
-                "saveimpossible"    : "An error occured on save.",
-                "successtitle"      : "Well done!",
-                "savesuccess"       : "Save done."
+    "entities": {
+        "actions": {
+            "delete": "Delete",
+            "details": "Show details",
+            "edit": "Modify",
+            "save": {
+                "name": "Save",
+                "errortitle": "Error!",
+                "saveimpossible": "An error occured on save.",
+                "successtitle": "Well done!",
+                "savesuccess": "Save done."
             },
-            "list"      :  {
-                "error"             : "Error!",
-                "listimpossible"    : "Impossible to get the list.",
-                "empty"             : "No element in the list."
+            "list": {
+                "error": "Error!",
+                "listimpossible": "Impossible to get the list.",
+                "empty": "No element in the list."
             },
-            "cancel"    : "Cancel"
+            "cancel": "Cancel"
         },
-        "yeast" : {
-            "add" : "Add a yeast",
-            "name" : {
-                "title"         : "Name",
-                "example"       : "e.g. : 2124 Bohemian Lager"
+        "yeast": {
+            "add": "Add a yeast",
+            "name": {
+                "title": "Name",
+                "example": "e.g. : 2124 Bohemian Lager"
             },
-            "efficiency" : {
-                "title"         : "Efficiency",
-                "example"       : "90"
+            "efficiency": {
+                "title": "Efficiency",
+                "example": "90"
             },
             "temperatureoptimal": {
-                "title"         : "Optimal temperatures",
-                "min" : {
-                    "example"   : "e.g. : 12"
+                "title": "Optimal temperatures",
+                "min": {
+                    "example": "e.g. : 12"
                 },
-                "max" : {
-                    "example"   : "e.g. : 16"
+                "max": {
+                    "example": "e.g. : 16"
                 }
             },
-            "temperaturemax"    : {
-                "title"         : "Temperatures",
-                "min" : {
-                    "example"   : "e.g. : 10"
+            "temperaturemax": {
+                "title": "Temperatures",
+                "min": {
+                    "example": "e.g. : 10"
                 },
-                "max" : {
-                    "example"   : "e.g. : 18"
+                "max": {
+                    "example": "e.g. : 18"
                 }
             },
-            "description"  : {
-                "title"         : "Description",
-                "example"       : "e.g. : For amber lagers."
+            "description": {
+                "title": "Description",
+                "example": "e.g. : For amber lagers."
             }
         },
-        "hop" : {
-            "add" : "Add a hop",
-            "confirm" : {
-                "add" : "Hop added",
-                "delete" : "Hop deleted",
-                "update" : "Hop updated"
+        "hop": {
+            "confirm": {
+                "add": "Hop added",
+                "delete": "Hop deleted",
+                "update": "Hop updated"
             },
-            "name" : {
-                "title"         : "Name",
-                "example"       : "e.g. : Citra"
+            "add": "Add a hop",
+            "name": {
+                "title": "Name",
+                "example": "e.g. : Citra"
             },
-            "alpharange" : {
-                "title"         : "Alpha",
-                "min" : {
-                    "example"   : "e.g. : 11"
+            "alpharange": {
+                "title": "Alpha",
+                "min": {
+                    "example": "e.g. : 11"
                 },
-                "max" : {
-                    "example"   : "e.g. : 14"
+                "max": {
+                    "example": "e.g. : 14"
                 }
             },
-            "flavor" : {
-                "title"         : "Flavor intensity (1-10)",
-                "example"       : "e.g. : 9"
+            "flavor": {
+                "title": "Flavor intensity (1-10)",
+                "example": "e.g. : 9"
             },
-            "description"  : {
-                "title"         : "Description",
-                "example"       : "e.g. : Green lemon."
+            "description": {
+                "title": "Description",
+                "example": "e.g. : Green lemon."
             }
         },
-        "malt" : {
-            "add" : "Add a malt",
-            "name"  : {
-                "title"         : "Name",
-                "example"       : "e.g. : Malt Carahell"
+        "malt": {
+            "confirm": {
+                "add": "Malt added",
+                "delete": "Malt deleted",
+                "update": "Malt updated"
             },
-            "ebc"  : {
-                "title"         : "EBC",
-                "example"       : "e.g. : 25"
+            "error": {
+                "list": "Failed to retrieve malt list",
+                "add": "Failed to add the malt",
+                "delete": "Failed to delete the malt",
+                "update": "Failed to update the malt"
             },
-            "maxyield"  : {
-                "title"         : "Max yield",
-                "example"       : "e.g. : 85"
+            "add": "Add a malt",
+            "name": {
+                "title": "Name",
+                "example": "e.g. : Malt Carahell"
             },
-            "description"  : {
-                "title"         : "Description",
-                "example"       : "e.g. : For german beers."
+            "ebc": {
+                "title": "EBC",
+                "example": "e.g. : 25"
             },
-            "type" : {
-                "title"         : "Type",
-                "values" : {
-                    "sugar"     : "Sugar",
-                    "malt"      : "Malted grain",
-                    "raw"       : "Raw grain"
+            "maxyield": {
+                "title": "Max yield",
+                "example": "e.g. : 85"
+            },
+            "description": {
+                "title": "Description",
+                "example": "e.g. : For german beers."
+            },
+            "type": {
+                "title": "Type",
+                "values": {
+                    "sugar": "Sugar",
+                    "malt": "Malted grain",
+                    "raw": "Raw grain"
                 }
             },
-            "maxuse" : {
-                "title"         : "Maximum use",
-                "example"       : "e.g. : 20%"
+            "maxuse": {
+                "title": "Maximum use",
+                "example": "e.g. : 20%"
             },
-            "mash" : {
-                "title"         : "Mash",
-                "values" : {
-                    "true"      : "Mash necessary",
-                    "fales"     : "No mash"
+            "mash": {
+                "title": "Mash",
+                "values": {
+                    "true": "Mash necessary",
+                    "fales": "No mash"
                 }
             }
         }
     },
-    "breweryManagement.form"    : {
-        "title"            : "Brewery management",
-        "addButton"            : "Add new"
+    "breweryManagement.form": {
+        "title": "Brewery management",
+        "addButton": "Add new"
     },
-    "breweryManagement.list"    : {
-        "title"            : "Breweries list",
-        "addStorageLocation" : "Add a storage location"
+    "breweryManagement.list": {
+        "title": "Breweries list",
+        "addStorageLocation": "Add a storage location"
     },
-    "storageManagement.form.addButton":"Add the storage location",
-    "storageLocation.name":"Name",
-    "brewery.name":"Name"
+    "storageManagement.form.addButton": "Add the storage location",
+    "storageLocation.name": "Name",
+    "brewery.name": "Name"
 }

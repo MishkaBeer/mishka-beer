@@ -1,148 +1,159 @@
 {
-    "nav-bar"           : {
-        "stock"             : "Stock",
-        "home"              : "Acceuil",
-        "brewery"           : "Brasserie",
-        "hops"              : "Houblons",
-        "malts"             : "Malts",
-        "yeasts"            : "Levures"
+    "nav-bar": {
+        "stock": "Stock",
+        "home": "Acceuil",
+        "brewery": "Brasserie",
+        "hops": "Houblons",
+        "malts": "Malts",
+        "yeasts": "Levures"
     },
-    "common"           : {
-        "errors"           : {
-            "system"             : "Erreur serveur"
+    "common": {
+        "errors": {
+            "system": "Erreur serveur"
         }
     },
 
-    "entities" : {
-         "actions" : {
-            "delete"    : "Supprimer",
-            "details"   : "Détails",
-            "edit"      : "Modifier",
-            "save"      :  {
-                "name"              : "Enregistrement",
-                "errortitle"        : "Erreur!",
-                "saveimpossible"    : "Une erreur est survenue à la sauvegarde.",
-                "successtitle"      : "Bien joué!",
-                "savesuccess"       : "Enregistrement réussi."
+    "entities": {
+        "actions": {
+            "delete": "Supprimer",
+            "details": "Détails",
+            "edit": "Modifier",
+            "save": {
+                "name": "Enregistrement",
+                "errortitle": "Erreur!",
+                "saveimpossible": "Une erreur est survenue à la sauvegarde.",
+                "successtitle": "Bien joué!",
+                "savesuccess": "Enregistrement réussi."
             },
-            "list"      :  {
-                "error"             : "Erreur!",
-                "listimpossible"    : "Impossible de récupérer la liste.",
-                "empty"             : "Aucun élément dans la liste."
+            "list": {
+                "error": "Erreur!",
+                "listimpossible": "Impossible de récupérer la liste.",
+                "empty": "Aucun élément dans la liste."
             },
-            "cancel"    : "Annuler"
+            "cancel": "Annuler"
         },
-        "hop" : {
-            "add" : "Ajouter un houblon",
-            "confirm" : {
-                "add" : "Houblon ajouté",
-                "delete" : "Houblon supprimé",
-                "update" : "Houblon mis à jour"
+        "hop": {
+            "confirm": {
+                "add": "Houblon ajouté",
+                "delete": "Houblon supprimé",
+                "update": "Houblon mis à jour"
             },
-            "name" : {
-                "title"         : "Nom",
-                "example"       : "e.g. : Citra"
+            "add": "Ajouter un houblon",
+            "name": {
+                "title": "Nom",
+                "example": "e.g. : Citra"
             },
-            "alpharange" : {
-                "title"         : "Alpha",
-                "min" : {
-                    "example"   : "e.g. : 11"
+            "alpharange": {
+                "title": "Alpha",
+                "min": {
+                    "example": "e.g. : 11"
                 },
-                "max" : {
-                    "example"   : "e.g. : 14"
+                "max": {
+                    "example": "e.g. : 14"
                 }
             },
-            "flavor" : {
-                "title"         : "Intensité de saveur (1-10)",
-                "example"       : "e.g. : 9"
+            "flavor": {
+                "title": "Intensité de saveur (1-10)",
+                "example": "e.g. : 9"
             },
-            "description"  : {
-                "title"         : "Description",
-                "example"       : "e.g. : Citron vert."
+            "description": {
+                "title": "Description",
+                "example": "e.g. : Citron vert."
             }
         },
-        "yeast" : {
-            "add" : "Ajouter une levure",
-            "name" : {
-                "title"         : "Nom",
-                "example"       : "e.g. : 2124 Bohemian Lager"
+        "yeast": {
+            "add": "Ajouter une levure",
+            "name": {
+                "title": "Nom",
+                "example": "e.g. : 2124 Bohemian Lager"
             },
-            "efficiency" : {
-                "title"         : "Efficacité",
-                "example"       : "90"
+            "efficiency": {
+                "title": "Efficacité",
+                "example": "90"
             },
             "temperatureoptimal": {
-                "title"         : "Optimales",
-                "min" : {
-                    "example"   : "e.g. : 12"
+                "title": "Optimales",
+                "min": {
+                    "example": "e.g. : 12"
                 },
-                "max" : {
-                    "example"   : "e.g. : 16"
+                "max": {
+                    "example": "e.g. : 16"
                 }
             },
-            "temperaturemax"    : {
-                "title"         : "Températures",
-                "min" : {
-                    "example"   : "e.g. : 10"
+            "temperaturemax": {
+                "title": "Températures",
+                "min": {
+                    "example": "e.g. : 10"
                 },
-                "max" : {
-                    "example"   : "e.g. : 18"
+                "max": {
+                    "example": "e.g. : 18"
                 }
             },
-            "description"  : {
-                "title"         : "Description",
-                "example"       : "e.g. : Pour les lagers ambrées."
+            "description": {
+                "title": "Description",
+                "example": "e.g. : Pour les lagers ambrées."
             }
         },
-        "malt" : {
-            "add" : "Ajouter un malt",
-           "name"  : {
-                "title"         : "Nom",
-                "example"       : "e.g. : Malt Carahell"
+        "malt": {
+            "confirm": {
+                "add": "Malt ajouté",
+                "delete": "Malt supprimé",
+                "update": "Malt mis à jour"
             },
-            "ebc"  : {
-                "title"         : "EBC",
-                "example"       : "e.g. : 25"
+            "error": {
+                "list": "Impossible de récupérer la liste",
+                "add": "Impossible d'ajouter le malt",
+                "delete": "Impossible de supprimer le malt",
+                "update": "Impossible de mettre à jout le malt"
             },
-            "maxyield"  : {
-                "title"         : "Rendement",
-                "example"       : "e.g. : 85"
+            "add": "Ajouter un malt",
+            "name": {
+                "title": "Nom",
+                "example": "e.g. : Malt Carahell"
             },
-            "description"  : {
-                "title"         : "Description",
-                "example"       : "e.g. : Pour des bières allemandes."
+            "ebc": {
+                "title": "EBC",
+                "example": "e.g. : 25"
             },
-            "type" : {
-                "title"         : "Type",
-                "values" : {
-                    "sugar" : "Sucre",
-                    "malt"  : "Céréale maltée",
-                    "raw"   : "Grain cru"
+            "maxyield": {
+                "title": "Rendement",
+                "example": "e.g. : 85"
+            },
+            "description": {
+                "title": "Description",
+                "example": "e.g. : Pour des bières allemandes."
+            },
+            "type": {
+                "title": "Type",
+                "values": {
+                    "sugar": "Sucre",
+                    "malt": "Céréale maltée",
+                    "raw": "Grain cru"
                 }
             },
-            "maxuse" : {
-                "title"         : "Usage maximum",
-                "example"       : "e.g. : 20%"
+            "maxuse": {
+                "title": "Usage maximum",
+                "example": "e.g. : 20%"
             },
-            "mash" : {
-                "title"         : "Empâtage",
-                "values" : {
-                    "true"      : "Empâtage nécessaire",
-                    "false"     : "Pas d'empâtage"
+            "mash": {
+                "title": "Empâtage",
+                "values": {
+                    "true": "Empâtage nécessaire",
+                    "false": "Pas d'empâtage"
                 }
             }
         }
     },
-    "breweryManagement.form"    : {
-        "title"            : "Gestion des brasseries",
-        "addButton"            : "Ajouter"
+    "breweryManagement.form": {
+        "title": "Gestion des brasseries",
+        "addButton": "Ajouter"
     },
-    "breweryManagement.list"    : {
-        "title"            : "Liste des brasseries",
-        "addStorageLocation" : "Ajouter un lieu de stockage"
+    "breweryManagement.list": {
+        "title": "Liste des brasseries",
+        "addStorageLocation": "Ajouter un lieu de stockage"
     },
-    "storageManagement.form.addButton":"Ajouter",
-    "storageLocation.name":"Nom",
-    "storageLocation.nameStorageLocation":"Nom du lieu de stockage",
-    "brewery.name":"Nom"
+    "storageManagement.form.addButton": "Ajouter",
+    "storageLocation.name": "Nom",
+    "storageLocation.nameStorageLocation": "Nom du lieu de stockage",
+    "brewery.name": "Nom"
 }

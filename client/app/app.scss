@@ -1,6 +1,5 @@
-$icon-font-path: "/bower_components/bootstrap-sass-official/vendor/assets/fonts/bootstrap/";
-$fa-font-path: "/bower_components/font-awesome/fonts";
-
+$icon-font-path:"/bower_components/bootstrap-sass-official/vendor/assets/fonts/bootstrap/";
+ $fa-font-path:"/bower_components/font-awesome/fonts";
 @import 'bootstrap-sass-official/vendor/assets/stylesheets/bootstrap';
 @import 'font-awesome/scss/font-awesome';
 
@@ -14,11 +13,11 @@ $fa-font-path: "/bower_components/font-awesome/fonts";
     color: #000;
     padding: 0.2em 0;
 }
-
-body { padding-top: 70px; }
-
+body {
+    padding-top: 70px;
+}
 @mixin no-padding($side) {
-    @if $side == 'all' {
+    @if $side=='all' {
         .no-padding {
             padding: 0 !important;
         }
@@ -35,24 +34,6 @@ body { padding-top: 70px; }
 @include no-padding("bottom");
 @include no-padding("all");
 
-@mixin padding-md($side) {
-    @if $side == 'all' {
-        .padding-md {
-            padding: 10px !important;
-        }
-    } @else {
-        .padding-md-#{$side} {
-            padding-#{$side}: 10px !important;
-        }
-    }
-}
-
-@include padding-md("left");
-@include padding-md("right");
-@include padding-md("top");
-@include padding-md("bottom");
-@include padding-md("all");
-
 // Component styles are injected through grunt
 // injector
 @import 'account/login/login.scss';
@@ -66,30 +47,27 @@ body { padding-top: 70px; }
 @import 'modal/modal.scss';
 // endinjector
 
-.no-margin{
-    margin:0px !important;
-}
-
-.absolute {
-  position: absolute;
-  bottom: 4px;
-  right: 8px;
-}
-
-.list-nav-item{
-    min-height: 40px;
-    cursor: pointer;
+ .no-margin {
+    margin: 0px !important;
 }
 .list-nav-item:hover {
     background-color: #e7e7e7;
-
+}
+.animate-show {
+    transition: all linear 0.5s;
+}
+.animate-show.ng-hide {
+    line-height: 0;
+    opacity: 0;
+}
+.popup-close-button {
+    position: absolute;
+    right: 10px;
+    top: 3px;
+    font-size: 12px;
 }
 
-.list-nav-txt{
-     min-height: 20px;
-}
-
-.mishka-popup{
+.mishka-popup {
     position: fixed;
     top: 50px;
     left: 50px;
@@ -97,19 +75,45 @@ body { padding-top: 70px; }
     text-align: center;
 }
 
-.animate-show {
-  transition:all linear 0.5s;
+// List for ingredients
+.list-mishkabeer {
+    @extend .col-md-12, .col-lg-12, .col-sm-12, .nav, .nav-tabs, .nav-stacked, .no-padding;
+    padding: 0px !important;
 }
 
-
-.animate-show.ng-hide {
-  line-height: 0;
-  opacity:0;
+.list-mishka-item {
+    @extend .col-md-12, .col-lg-12, .col-sm-12, .container;
+    min-height: 40px;
+    padding: 0px !important;
+}
+.list-mishka-item:hover {
+    background-color: #f5f5f5;
+    cursor: pointer;
 }
 
-.popup-close-button {
-    position:absolute;
-    right:10px;
-    top:3px;
-    font-size: 12px;
+.list-mishka-item .btn-group {
+    position: absolute;
+    top: 5px;
+    right: 5px;
+}
+
+.list-mishka-item .btn-group .btn {
+    @extend .btn-default, .btn-sm;
+    margin : 0px !important;
+}
+
+.list-mishka-txt {
+    @extend .col-md-12, .col-lg-12, .col-sm-12, .container;
+    margin: 0px !important;
+    min-height: 40px;
+    padding-right: 60px !important;
+    padding-top: 10px !important;
+    padding-bottom: 10px !important;
+    padding-left: 10px !important;
+}
+
+.list-mishka-addbtn {
+    @extend .panel-heading;
+    color: #3f81ba !important;
+    cursor : pointer;
 }

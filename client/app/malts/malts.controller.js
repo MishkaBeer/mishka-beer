@@ -1,10 +1,11 @@
 'use strict';
 
 angular.module('mishkaBeerApp')
-    .controller('MaltsCtrl', function ($scope, $http, socket, $translate) {
+    .controller('MaltsCtrl', function ($scope, $http, socket, $translate, $injector) {
 
         $scope.editInfos = [];
         $scope.malts = [];
+        $scope.messagingService = $injector.get('messagingService');
 
         /**
          * Return infos for an element.
@@ -40,7 +41,7 @@ angular.module('mishkaBeerApp')
 
         $scope.show = function ($element) {
             var info = $scope.getInfos($element._id);
-            var detailsNew = !info.$details;
+            var detailsNew = !(info.$details || info.$edit);
             $scope.closeAll();
             info.$edit = false;
             info.$details = detailsNew;
@@ -131,18 +132,35 @@ angular.module('mishkaBeerApp')
                         });
                     }
                 });
+            }).error(function () {
+                $scope.messagingService.displayInfo("entities.malt.error.list");
             });
 
         $scope.saveMalt = function ($malt) {
             if ($malt._id != null) {
-                return $http.put('/api/malts/' + $malt._id, $malt);
+                return $http.put('/api/malts/' + $malt._id, $malt).
+                success(function () {
+                    $scope.messagingService.displayInfo("entities.malt.confirm.update");
+                }).error(function () {
+                    $scope.messagingService.displayInfo("entities.malt.error.update");
+                });
             } else {
-                return $http.post('/api/malts', $malt);
+                return $http.post('/api/malts', $malt).
+                success(function () {
+                    $scope.messagingService.displayInfo("entities.malt.confirm.add");
+                }).error(function () {
+                    $scope.messagingService.displayInfo("entities.malt.error.add");
+                });
             };
         };
 
         $scope.deleteMalt = function ($malt) {
-            $http.delete('/api/malts/' + $malt._id);
+            $http.delete('/api/malts/' + $malt._id).
+            success(function () {
+                $scope.messagingService.displayInfo("entities.malt.confirm.delete");
+            }).error(function () {
+                $scope.messagingService.displayInfo("entities.malt.error.delete");
+            });
         };
 
         $scope.$on('$destroy', function () {
