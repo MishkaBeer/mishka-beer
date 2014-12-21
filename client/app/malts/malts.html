@@ -3,7 +3,7 @@
         <div class="col-md-12 col-lg-12 col-sm-12">
             <h1 class="page-header">{{'nav-bar.malts' | translate}}</h1>
             <div class="panel panel-default" id="panel1">
-                <div class="list-mishka-addbtn" ng-click="changeShowNewMalt()">
+                <div class="msk-list-addbtn" ng-click="changeShowNewMalt()">
                         {{'entities.malt.add' | translate}}
                         <p class="pull-right"><i class="glyphicon glyphicon glyphicon-plus" ng-if="newMaltClass===''"></i><i class="glyphicon glyphicon glyphicon-chevron-up" ng-if="newMaltClass==='in'"></i>
                         </p>
@@ -15,10 +15,10 @@
                 </div>
             </div>
             <div class="alert-warning" ng-show="malts == null || malts.length === 0">{{"entities.actions.list.empty" | translate}}</div>
-            <ul class="list-mishkabeer" ng-repeat="malt in malts | orderBy:'name'">
+            <ul class="msk-list" ng-repeat="malt in malts | orderBy:'name'">
                 <li ng-class="getInfos(malt._id).$edit || getInfos(malt._id).$details ?'panel panel-default' : ' '">
-                    <div class="list-mishka-item" ng-class="getInfos(malt._id).$edit || getInfos(malt._id).$details ? 'panel-heading' : ' '">
-                        <div class="list-mishka-txt"  ng-click="show(malt)">
+                    <div class="msk-list-item" ng-class="getInfos(malt._id).$edit || getInfos(malt._id).$details ? 'panel-heading' : ' '">
+                        <div class="msk-list-txt"  ng-click="show(malt)">
                             <div class="col-md-8 col-sm-8 no-padding-left">{{malt.name}}</div>
                             <div class="col-md-2 col-sm-2 no-padding-left">
                                 {{getNameMaltType(malt.type) | translate}}

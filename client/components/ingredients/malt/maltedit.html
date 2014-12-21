@@ -1,8 +1,8 @@
-<form class="form-horizontal" name="maltform" ng-submit="save(maltform)">
+<form class="form-horizontal" name="maltform" ng-submit="save(maltform)" novalidate>
     <div class="form-group">
         <div class="col-md-8">
             <label class="control-label" translate="entities.malt.name.title"></label>
-            <input type="text" class="form-control" ng-model="editdata.name"
+            <input type="text" name="name" class="form-control" ng-model="editdata.name"
                 ng-required="true"
                 placeholder="{{edit ? ('entities.malt.name.example' | translate) : ''}}" ng-disabled="!edit"/>
        </div>

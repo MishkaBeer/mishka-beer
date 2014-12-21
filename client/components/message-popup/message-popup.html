@@ -1,6 +1,6 @@
-    <div ng-controller="MishkaBeerMessageCtrl" class="mishka-popup">
+    <div ng-controller="msk-MessageCtrl" class="msk-popup">
         <div class="animate-show alert-danger" ng-show="isDisplayError()">
-            <button type="button" class="close  popup-close-button" ng-show="isDisplayError()" ng-click="hideError()"><i class="glyphicon glyphicon-chevron-up"></i></button>
+            <button type="button" class="msk-popup-closebtn" ng-show="isDisplayError()" ng-click="hideError()"><i class="glyphicon glyphicon-chevron-up"></i></button>
 
             {{errorMessage | translate}}
         </div>

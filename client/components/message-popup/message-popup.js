@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('mishkaBeerApp')
-    .controller('MishkaBeerMessageCtrl', function ($scope, $http, socket, $translate, $injector, $timeout) {
+    .controller('msk-MessageCtrl', function ($scope, $http, socket, $translate, $injector, $timeout) {
         $scope.displayError = false;
         $scope.displayInfo = false;
 
