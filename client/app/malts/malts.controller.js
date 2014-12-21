@@ -133,7 +133,7 @@ angular.module('mishkaBeerApp')
                     }
                 });
             }).error(function () {
-                $scope.messagingService.displayInfo("entities.malt.error.list");
+                $scope.messagingService.displayError("entities.malt.error.list");
             });
 
         $scope.saveMalt = function ($malt) {
@@ -149,7 +149,7 @@ angular.module('mishkaBeerApp')
                 success(function () {
                     $scope.messagingService.displayInfo("entities.malt.confirm.add");
                 }).error(function () {
-                    $scope.messagingService.displayInfo("entities.malt.error.add");
+                    $scope.messagingService.displayError("entities.malt.error.add");
                 });
             };
         };
@@ -159,7 +159,7 @@ angular.module('mishkaBeerApp')
             success(function () {
                 $scope.messagingService.displayInfo("entities.malt.confirm.delete");
             }).error(function () {
-                $scope.messagingService.displayInfo("entities.malt.error.delete");
+                $scope.messagingService.displayError("entities.malt.error.delete");
             });
         };
 

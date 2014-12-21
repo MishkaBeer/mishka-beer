@@ -104,7 +104,7 @@
                 "list": "Impossible de récupérer la liste",
                 "add": "Impossible d'ajouter le malt",
                 "delete": "Impossible de supprimer le malt",
-                "update": "Impossible de mettre à jout le malt"
+                "update": "Impossible de mettre à jour le malt"
             },
             "add": "Ajouter un malt",
             "name": {
