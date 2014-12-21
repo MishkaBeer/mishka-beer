@@ -142,7 +142,7 @@ angular.module('mishkaBeerApp')
                 success(function () {
                     $scope.messagingService.displayInfo("entities.malt.confirm.update");
                 }).error(function () {
-                    $scope.messagingService.displayInfo("entities.malt.error.update");
+                    $scope.messagingService.displayError("entities.malt.error.update");
                 });
             } else {
                 return $http.post('/api/malts', $malt).
