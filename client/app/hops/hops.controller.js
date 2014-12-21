@@ -112,7 +112,7 @@ angular.module('mishkaBeerApp').controller('HopsCtrl', function ($scope, $http, 
             });
         } else {
             $http.post('/api/hops', $hop).
-            success(function (data, status, headers, config) {
+            success(function () {
                 $scope.messagingService.displayInfo("entities.hop.confirm.add");
             }).
             error(function (data, status, headers, config) {
@@ -123,10 +123,10 @@ angular.module('mishkaBeerApp').controller('HopsCtrl', function ($scope, $http, 
 
     $scope.deleteHop = function ($hop) {
         $http.delete('/api/hops/' + $hop._id).
-        success(function (data, status, headers, config) {
+        success(function () {
             $scope.messagingService.displayInfo("entities.hop.confirm.delete");
         }).
-        error(function (data, status, headers, config) {
+        error(function () {
             $scope.messagingService.displaySystemError();
         });
     };
