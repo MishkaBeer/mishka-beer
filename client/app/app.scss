@@ -47,9 +47,14 @@ body {
 @import 'modal/modal.scss';
 // endinjector
 
- .no-margin {
+.no-margin {
     margin: 0px !important;
 }
+
+.with-newlines {
+    white-space: pre;
+}
+
 .animate-show {
     transition: all linear 0.5s;
 }
@@ -65,12 +70,36 @@ body {
     font-size: 12px;
 }
 
+.msk-input-noedit {
+    @extend .form-control-static;
+    padding-left: 13px;
+    background-color: #f5f5f5;
+    border-radius: 3px;
+    min-height: 35px;
+}
 .msk-popup {
     position: fixed;
     top: 50px;
     left: 50px;
     right: 50px;
     text-align: center;
+}
+
+// hide spinner for input number
+.msk-form input[type=number]::-webkit-outer-spin-button,
+.msk-form input[type=number]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+.msk-form input[type=number] {
+    -moz-appearance:textfield;
+}
+
+.msk-form .help-block {
+    position : absolute;
+    font-size: 10px;
+    margin-top: 3px;
+    margin-bottom: 0px;
 }
 
 // List for ingredients

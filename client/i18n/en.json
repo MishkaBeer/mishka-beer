@@ -108,15 +108,24 @@
             "add": "Add a malt",
             "name": {
                 "title": "Name",
-                "example": "e.g. : Malt Carahell"
+                "example": "e.g. : Malt Carahell",
+                "required": {
+                    "error": "The malt's name is required"
+                }
             },
             "ebc": {
                 "title": "EBC",
-                "example": "e.g. : 25"
+                "example": "e.g. : 25",
+                "number": {
+                    "error": "Enter a number ≥ 0"
+                }
             },
             "maxyield": {
                 "title": "Max yield",
-                "example": "e.g. : 85"
+                "example": "e.g. : 85",
+                "number": {
+                    "error": "Enter a rate (≥0 and ≤100)"
+                }
             },
             "description": {
                 "title": "Description",
@@ -132,7 +141,10 @@
             },
             "maxuse": {
                 "title": "Maximum use",
-                "example": "e.g. : 20%"
+                "example": "e.g. : 20%",
+                "number": {
+                    "error": "Enter a rate (≥0 and ≤100)"
+                }
             },
             "mash": {
                 "title": "Mash",
@@ -153,5 +165,6 @@
     },
     "storageManagement.form.addButton": "Add the storage location",
     "storageLocation.name": "Name",
+    "storageLocation.nameStorageLocation": "Storage location name",
     "brewery.name": "Name"
 }

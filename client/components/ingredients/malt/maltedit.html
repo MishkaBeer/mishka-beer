@@ -1,61 +1,65 @@
-<form class="form-horizontal" name="maltform" ng-submit="save(maltform)" novalidate>
+<form class="form-horizontal msk-form" name="maltform" novalidate>
     <div class="form-group">
-        <div class="col-md-8">
-            <label class="control-label" translate="entities.malt.name.title"></label>
-            <input type="text" name="name" class="form-control" ng-model="editdata.name"
-                ng-required="true"
-                placeholder="{{edit ? ('entities.malt.name.example' | translate) : ''}}" ng-disabled="!edit"/>
-       </div>
-       <div class="col-md-2">
+        <div class="col-md-8" ng-class="{ 'has-error' : maltform.name.$invalid && !maltform.name.$pristine }">
+            <label class="control-label">{{"entities.malt.name.title" | translate }}*</label>
+            <input type="text" name="name" class="form-control" ng-model="editdata.name" placeholder="{{edit ? ('entities.malt.name.example' | translate) : ''}}" ng-if="edit" required />
+            <p class="msk-input-noedit" ng-if="!edit">{{editdata.name}}</p>
+            <p class="help-block" ng-if="maltform.name.$error.required && !maltform.name.$pristine">{{"entities.malt.name.required.error" | translate}}</p>
+        </div>
+        <div class="col-md-2">
             <label class="control-label" translate="entities.malt.type.title"></label>
-            <select  class="form-control" ng-model="editdata.type" ng-options="type.code as (type.name | translate) for type in MaltTypes" ng-init="selected='malt'" ng-disabled="!edit">
+            <select class="form-control" ng-model="editdata.type" ng-options="type.code as (type.name | translate) for type in MaltTypes" ng-init="selected='malt'" ng-if="edit">
             </select>
-       </div>
+            <p class="msk-input-noedit" ng-if="!edit">{{(MaltTypes | filter : {code : editdata.type})[0].name | translate}}</p>
+        </div>
 
-       <div class="col-md-2">
+        <div class="col-md-2" ng-class="{ 'has-error' : maltform.ebc.$invalid && !maltform.ebc.$pristine }">
             <label class="control-label" translate="entities.malt.ebc.title"></label>
-            <input type="text" class="form-control" ng-model="editdata.ebc"
-                placeholder="{{edit ? ('entities.malt.ebc.example' | translate) : ''}}"  ng-disabled="!edit"/>
-       </div>
+            <input type="number" name="ebc" min="0" class="form-control" ng-model="editdata.ebc" placeholder="{{edit ? ('entities.malt.ebc.example' | translate) : ''}}" ng-if="edit" />
+            <p class="msk-input-noedit" ng-if="!edit">{{editdata.ebc}}</p>
+            <p class="help-block" ng-if="(maltform.ebc.$error.number || maltform.ebc.$error.min) && !maltform.ebc.$pristine">{{"entities.malt.ebc.number.error" | translate}}</p>
+        </div>
     </div>
     <div class="form-group">
-       <div class="col-md-2">
+        <div class="col-md-2" ng-class="{ 'has-error' : maltform.maxuse.$invalid && !maltform.maxuse.$pristine }">
             <label class="control-label" translate="entities.malt.maxuse.title"></label>
-            <div class="input-group">
-                <input type="text" class="form-control" ng-model="editdata.maxuse"
-                    placeholder="{{edit ? ('entities.malt.maxuse.example' | translate) : ''}}"  ng-disabled="!edit" />
+            <div class="input-group" ng-if="edit">
+                <input type="number" min="0" max="100" name="maxuse" class="form-control" ng-model="editdata.maxuse" placeholder="{{edit ? ('entities.malt.maxuse.example' | translate) : ''}}" />
                 <span class="input-group-addon">%</span>
-           </div>
-       </div>
-       <div class="col-md-2">
+            </div>
+            <p class="msk-input-noedit" ng-if="!edit">{{editdata.maxuse}} {{editdata.maxuse != null ? "%" : ""}}</p>
+            <p class="help-block" ng-if="(maltform.maxuse.$error.number || maltform.maxuse.$error.min || maltform.maxuse.$error.max)&& !maltform.maxuse.$pristine">{{"entities.malt.maxuse.number.error" | translate}}</p>
+        </div>
+        <div class="col-md-2" ng-class="{ 'has-error' : maltform.maxyield.$invalid && !maltform.maxyield.$pristine }">
             <label class="control-label" translate="entities.malt.maxyield.title"></label>
-            <div class="input-group">
-                <input type="text" class="form-control" ng-model="editdata.maxyield"
-                    placeholder="{{edit ? ('entities.malt.maxyield.example' | translate) : ''}}"  ng-disabled="!edit"/>
+            <div class="input-group" ng-if="edit">
+                <input type="number" min="0" max="100" name="maxyield" class="form-control" ng-model="editdata.maxyield" placeholder="{{edit ? ('entities.malt.maxyield.example' | translate) : ''}}"/>
                 <span class="input-group-addon">%</span>
-           </div>
-       </div>
-       <div class="col-md-3">
+            </div>
+            <p class="msk-input-noedit" ng-if="!edit">{{editdata.maxyield}} {{editdata.maxuse != null ? "%" : ""}}</p>
+            <p class="help-block" ng-if="(maltform.maxyield.$error.number || maltform.maxyield.$error.min || maltform.maxyield.$error.max) && !maltform.maxyield.$pristine">{{"entities.malt.maxyield.number.error" | translate}}</p>
+        </div>
+        <div class="col-md-3">
             <label class="control-label" translate="entities.malt.mash.title"></label>
-            <select  class="form-control"  ng-model="editdata.mash" ng-options="type.code as (type.name | translate) for type in MashNecessary" ng-init="selected='true'" ng-disabled="!edit">
+            <select class="form-control" ng-model="editdata.mash" ng-options="type.code as (type.name | translate) for type in MashNecessary" ng-init="selected='true'" ng-if="edit">
             </select>
-       </div>
+            <p class="msk-input-noedit" ng-if="!edit">{{(MashNecessary | filter : {code : editdata.mash})[0].name | translate}}</p>
+        </div>
     </div>
     <div class="form-group">
-       <div class="col-md-12">
+        <div class="col-md-12">
             <label class="control-label" translate="entities.malt.description.title"></label>
-            <textarea class="form-control" name="description" rows="3"
-              ng-model="editdata.description"  ng-disabled="!edit"
-               placeholder="{{edit ? ('entities.malt.description.example' | translate) : ''}}"></textarea>
-       </div>
+            <textarea class="form-control" name="description" rows="3" ng-model="editdata.description" ng-if="edit" placeholder="{{edit ? ('entities.malt.description.example' | translate) : ''}}"></textarea>
+            <p class="msk-input-noedit with-newlines" ng-if="!edit">{{editdata.description}}</p>
+        </div>
     </div>
     <div class="form-group" ng-if="edit">
         <div class="col-md-12">
-           <button type="submit" class="btn btn-success" ng-disabled="!maltModified()">
-               <i class="glyphicon glyphicon-ok"></i> {{"entities.actions.save.name" | translate}}
-           </button>
-            <button class="btn btn-danger" ng-click="resetData()" ng-disabled="!maltModified()">
-               <i class="glyphicon glyphicon-remove"></i> {{"entities.actions.cancel" | translate}}
+            <button type="submit" ng-click="save(maltform)" class="btn btn-success" ng-disabled="!maltModified()">
+                <i class="glyphicon glyphicon-ok"></i> {{"entities.actions.save.name" | translate}}
+            </button>
+            <button class="btn btn-danger" ng-click="resetData();" ng-disabled="!maltModified() || maltform.$pristine">
+                <i class="glyphicon glyphicon-remove"></i> {{"entities.actions.cancel" | translate}}
             </button>
         </div>
     </div>

@@ -12,7 +12,6 @@
             "system": "Erreur serveur"
         }
     },
-
     "entities": {
         "actions": {
             "delete": "Supprimer",
@@ -31,35 +30,6 @@
                 "empty": "Aucun élément dans la liste."
             },
             "cancel": "Annuler"
-        },
-        "hop": {
-            "confirm": {
-                "add": "Houblon ajouté",
-                "delete": "Houblon supprimé",
-                "update": "Houblon mis à jour"
-            },
-            "add": "Ajouter un houblon",
-            "name": {
-                "title": "Nom",
-                "example": "e.g. : Citra"
-            },
-            "alpharange": {
-                "title": "Alpha",
-                "min": {
-                    "example": "e.g. : 11"
-                },
-                "max": {
-                    "example": "e.g. : 14"
-                }
-            },
-            "flavor": {
-                "title": "Intensité de saveur (1-10)",
-                "example": "e.g. : 9"
-            },
-            "description": {
-                "title": "Description",
-                "example": "e.g. : Citron vert."
-            }
         },
         "yeast": {
             "add": "Ajouter une levure",
@@ -94,6 +64,35 @@
                 "example": "e.g. : Pour les lagers ambrées."
             }
         },
+        "hop": {
+            "confirm": {
+                "add": "Houblon ajouté",
+                "delete": "Houblon supprimé",
+                "update": "Houblon mis à jour"
+            },
+            "add": "Ajouter un houblon",
+            "name": {
+                "title": "Nom",
+                "example": "e.g. : Citra"
+            },
+            "alpharange": {
+                "title": "Alpha",
+                "min": {
+                    "example": "e.g. : 11"
+                },
+                "max": {
+                    "example": "e.g. : 14"
+                }
+            },
+            "flavor": {
+                "title": "Intensité de saveur (1-10)",
+                "example": "e.g. : 9"
+            },
+            "description": {
+                "title": "Description",
+                "example": "e.g. : Citron vert."
+            }
+        },
         "malt": {
             "confirm": {
                 "add": "Malt ajouté",
@@ -109,15 +108,24 @@
             "add": "Ajouter un malt",
             "name": {
                 "title": "Nom",
-                "example": "e.g. : Malt Carahell"
+                "example": "e.g. : Malt Carahell",
+                "required": {
+                    "error": "Le nom du malt est obligatoire"
+                }
             },
             "ebc": {
                 "title": "EBC",
-                "example": "e.g. : 25"
+                "example": "e.g. : 25",
+                "number": {
+                    "error": "Entrez un nombre ≥ 0"
+                }
             },
             "maxyield": {
                 "title": "Rendement",
-                "example": "e.g. : 85"
+                "example": "e.g. : 85",
+                "number": {
+                    "error": "Entrez un taux (≥0 and ≤100)"
+                }
             },
             "description": {
                 "title": "Description",
@@ -133,7 +141,10 @@
             },
             "maxuse": {
                 "title": "Usage maximum",
-                "example": "e.g. : 20%"
+                "example": "e.g. : 20%",
+                "number": {
+                    "error": "Entrez un taux (≥0 and ≤100)"
+                }
             },
             "mash": {
                 "title": "Empâtage",

@@ -23,8 +23,8 @@
                             <div class="col-md-2 col-sm-2 no-padding-left">
                                 {{getNameMaltType(malt.type) | translate}}
                             </div>
-                            <div class="col-md-2">
-                                <p ng-if="malt.ebc">{{'entities.malt.ebc.title' | translate}} : {{malt.ebc}}</p>
+                            <div class="col-md-2 col-sm-2 no-padding-left">
+                                <p ng-if="malt.ebc" class="no-margin">{{'entities.malt.ebc.title' | translate}} : {{malt.ebc}}</p>
                             </div>
                         </div>
                         <div class="btn-group">
