@@ -1,21 +1,21 @@
 'use strict';
 
 angular.module('mishkaBeerApp')
-    .controller('msk-MessageCtrl', function ($scope, $http, socket, $translate, $injector, $timeout) {
+    .controller('msk-notificationsCtrl', function ($scope, $translate, $mskNotifications, $timeout) {
         $scope.displayError = false;
         $scope.displayInfo = false;
 
         $scope.infoMessage = "";
         $scope.errorMessage = "";
 
-        $scope.messagingService = $injector.get('messagingService');
-        $scope.$watch('messagingService.error', function (newValue, oldValue) {
+        $scope.mskNotifications = $mskNotifications;
+        $scope.$watch('mskNotifications.error', function (newValue, oldValue) {
             if (newValue != "") {
                 $scope.displayError = true;
                 $scope.errorMessage = newValue;
             }
         });
-        $scope.$watch('messagingService.info', function (newValue, oldValue) {
+        $scope.$watch('mskNotifications.info', function (newValue, oldValue) {
             if (newValue != "") {
                 $scope.displayInfo = true;
                 $scope.infoMessage = newValue;
@@ -24,7 +24,7 @@ angular.module('mishkaBeerApp')
                         if ($scope.infoMessage == newValue) {
                             //Only if no other message was displayed
                             $scope.displayInfo = false;
-                            $scope.messagingService.info = "";
+                            $scope.mskNotifications.info = "";
                         }
                     }, 4000);
             }
@@ -36,7 +36,7 @@ angular.module('mishkaBeerApp')
 
         $scope.hideError = function () {
             $scope.displayError = false;
-            $scope.messagingService.error = "";
+            $scope.mskNotifications.error = "";
         }
 
         $scope.isDisplayInfo = function () {

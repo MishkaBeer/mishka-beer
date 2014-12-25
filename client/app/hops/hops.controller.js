@@ -1,10 +1,9 @@
 'use strict';
 
-angular.module('mishkaBeerApp').controller('HopsCtrl', function ($scope, $http, socket, $translate, $injector) {
+angular.module('mishkaBeerApp').controller('HopsCtrl', function ($scope, $http, socket, $translate, $mskNotifications) {
     $scope.editInfos = [];
     $scope.hops = [];
-    $scope.messagingService = $injector.get('messagingService');
-
+    $scope.mskNotifications = $mskNotifications;
 
     /**
      * Return infos for an element.
@@ -47,8 +46,6 @@ angular.module('mishkaBeerApp').controller('HopsCtrl', function ($scope, $http, 
         info.$edit = false;
         info.$details = detailsNew;
     }
-
-
 
     //
     // Hops services.
@@ -105,18 +102,18 @@ angular.module('mishkaBeerApp').controller('HopsCtrl', function ($scope, $http, 
         if ($hop._id != null) {
             $http.put('/api/hops/' + $hop._id, $hop).
             success(function (data, status, headers, config) {
-                $scope.messagingService.displayInfo("entities.hop.confirm.update");
+                $scope.mskNotifications.displayInfo("entities.hop.confirm.update");
             }).
             error(function (data, status, headers, config) {
-                $scope.messagingService.displaySystemError();
+                $scope.mskNotifications.displaySystemError();
             });
         } else {
             $http.post('/api/hops', $hop).
             success(function () {
-                $scope.messagingService.displayInfo("entities.hop.confirm.add");
+                $scope.mskNotifications.displayInfo("entities.hop.confirm.add");
             }).
             error(function (data, status, headers, config) {
-                $scope.messagingService.displaySystemError();
+                $scope.mskNotifications.displaySystemError();
             });
         };
     };
@@ -124,10 +121,10 @@ angular.module('mishkaBeerApp').controller('HopsCtrl', function ($scope, $http, 
     $scope.deleteHop = function ($hop) {
         $http.delete('/api/hops/' + $hop._id).
         success(function () {
-            $scope.messagingService.displayInfo("entities.hop.confirm.delete");
+            $scope.mskNotifications.displayInfo("entities.hop.confirm.delete");
         }).
         error(function () {
-            $scope.messagingService.displaySystemError();
+            $scope.mskNotifications.displaySystemError();
         });
     };
 

@@ -1,8 +1,8 @@
 'use strict';
 
 angular.module('mishkaBeerApp')
-    .controller('MaltsCtrl', function ($scope, $http, socket, $translate, $injector, $mskConstants, $mskUtilities) {
-        $scope.messagingService = $injector.get('messagingService');
+    .controller('MaltsCtrl', function ($scope, $http, socket, $translate, $mskNotifications, $mskConstants, $mskUtilities) {
+        $scope.mskNotifications = $mskNotifications;
         $scope.listManager = $mskUtilities.createListEditManager('/api/malts/', 'malt');
 
         //
@@ -16,9 +16,6 @@ angular.module('mishkaBeerApp')
             }
         }
 
-        //
-        // Malts services
-        //
         $scope.changeShowNewMalt = function () {
             if ($scope.newMaltClass === "") {
                 $scope.newMaltClass = "in";
@@ -30,23 +27,23 @@ angular.module('mishkaBeerApp')
         $scope.newMaltClass = "";
 
         $scope.listManager.initList().error(function () {
-            $scope.messagingService.displayError("entities.malt.error.list");
+            $scope.mskNotifications.displayError("entities.malt.error.list");
         });
 
         $scope.saveMalt = function ($malt) {
             if ($malt._id != null) {
                 return $scope.listManager.save($malt).
                 success(function () {
-                    $scope.messagingService.displayInfo("entities.malt.confirm.update");
+                    $scope.mskNotifications.displayInfo("entities.malt.confirm.update");
                 }).error(function () {
-                    $scope.messagingService.displayError("entities.malt.error.update");
+                    $scope.mskNotifications.displayError("entities.malt.error.update");
                 });
             } else {
                 return $scope.listManager.saveNew($malt).
                 success(function () {
-                    $scope.messagingService.displayInfo("entities.malt.confirm.add");
+                    $scope.mskNotifications.displayInfo("entities.malt.confirm.add");
                 }).error(function () {
-                    $scope.messagingService.displayError("entities.malt.error.add");
+                    $scope.mskNotifications.displayError("entities.malt.error.add");
                 });
             };
         };
@@ -54,9 +51,9 @@ angular.module('mishkaBeerApp')
         $scope.deleteMalt = function ($malt) {
             return $scope.listManager.delete($malt).
             success(function () {
-                $scope.messagingService.displayInfo("entities.malt.confirm.delete");
+                $scope.mskNotifications.displayInfo("entities.malt.confirm.delete");
             }).error(function () {
-                $scope.messagingService.displayError("entities.malt.error.delete");
+                $scope.mskNotifications.displayError("entities.malt.error.delete");
             });
         };
 
