@@ -2,12 +2,18 @@ angular.module('mishkaBeerApp')
     .directive('maltedit', function () {
         function link(scope, element, attrs, ngCtrl) {
 
+            if (scope.malt == undefined) {
+                scope.maltOriginal = {
+                    ebc: null,
+                    maxuse: null,
+                    maxyield: null
+                };
+            } else {
+                scope.maltOriginal = scope.malt;
+            }
+
             scope.resetData = function () {
-                if (scope.malt == undefined) {
-                    scope.editdata = {};
-                } else {
-                    scope.editdata = angular.copy(scope.malt);
-                }
+                scope.editdata = angular.copy(scope.maltOriginal);
             }
 
             scope.resetData();
@@ -23,11 +29,7 @@ angular.module('mishkaBeerApp')
             }
 
             scope.maltModified = function () {
-                if (scope.malt == undefined) {
-                    return !angular.equals({}, scope.editdata);
-                } else {
-                    return !angular.equals(scope.malt, scope.editdata);
-                }
+                return !angular.equals(scope.maltOriginal, scope.editdata);
             }
 
             scope.MaltTypes = [
@@ -55,7 +57,6 @@ angular.module('mishkaBeerApp')
                     name: "entities.malt.mash.values.false"
         }
     ];
-
 
         }
         return {

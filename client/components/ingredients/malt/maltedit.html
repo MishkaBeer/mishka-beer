@@ -58,7 +58,7 @@
             <button type="submit" ng-click="save(maltform)" class="btn btn-success" ng-disabled="!maltModified()">
                 <i class="glyphicon glyphicon-ok"></i> {{"entities.actions.save.name" | translate}}
             </button>
-            <button class="btn btn-danger" ng-click="resetData();" ng-disabled="!maltModified() || maltform.$pristine">
+            <button class="btn btn-danger" ng-click="resetData(); maltform.$setPristine();" ng-disabled="!maltModified() && maltform.$pristine">
                 <i class="glyphicon glyphicon-remove"></i> {{"entities.actions.cancel" | translate}}
             </button>
         </div>
