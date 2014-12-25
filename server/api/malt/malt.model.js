@@ -7,7 +7,7 @@ var MaltTypes = ["sugar", "malt", "raw"];
 
 var MaltSchema = new Schema({
   name: String,
-  ebc: String,
+  ebc: { type: Number, min: 0 },
   maxyield: { type: Number, min: 0, max: 100 },
   maxuse: { type: Number, min: 0, max: 100 },
   mash: Boolean,
