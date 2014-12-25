@@ -14,10 +14,10 @@
                     </div>
                 </div>
             </div>
-            <div class="alert-warning" ng-show="malts == null || malts.length === 0">{{"entities.actions.list.empty" | translate}}</div>
-            <ul class="msk-list" ng-repeat="malt in malts | orderBy:'name'">
-                <li ng-class="getInfos(malt._id).$edit || getInfos(malt._id).$details ?'panel panel-default' : ' '">
-                    <div class="msk-list-item" ng-class="getInfos(malt._id).$edit || getInfos(malt._id).$details ? 'panel-heading' : ' '">
+            <div class="alert-warning" ng-show="listManager.items == null || listManager.items.length === 0">{{"entities.actions.list.empty" | translate}}</div>
+            <ul class="msk-list" ng-repeat="malt in listManager.items | orderBy:'name'">
+                <li ng-class="listManager.getInfos(malt._id).$edit || listManager.getInfos(malt._id).$details ?'panel panel-default' : ' '">
+                    <div class="msk-list-item" ng-class="listManager.getInfos(malt._id).$edit || listManager.getInfos(malt._id).$details ? 'panel-heading' : ' '">
                         <div class="msk-list-txt"  ng-click="show(malt)">
                             <div class="col-md-8 col-sm-8 no-padding-left">{{malt.name}}</div>
                             <div class="col-md-2 col-sm-2 no-padding-left">
@@ -28,7 +28,7 @@
                             </div>
                         </div>
                         <div class="btn-group">
-                            <button type="button" class="btn" ng-class="getInfos(malt._id).$edit ? 'active' : ' '" ng-click="edit(malt)"><i class="glyphicon glyphicon-pencil"></i>
+                            <button type="button" class="btn" ng-class="listManager.getInfos(malt._id).$edit ? 'active' : ' '" ng-click="edit(malt)"><i class="glyphicon glyphicon-pencil"></i>
                             </button>
                             <button type="button" class="btn" ng-click="deleteMalt(malt)"><i class="glyphicon glyphicon-trash"></i>
                             </button>

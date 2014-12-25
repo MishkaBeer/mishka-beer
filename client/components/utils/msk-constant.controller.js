@@ -15,7 +15,6 @@ angular.module("mishkaBeerApp").factory("$mskConstants",
                     code: "sugar",
                     name: "entities.malt.type.values.sugar"
                 }],
-
             // Mash necessary name/codes correspondance.
             mashNecessary: [
                 {
