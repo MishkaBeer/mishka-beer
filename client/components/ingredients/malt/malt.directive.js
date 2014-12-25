@@ -1,6 +1,8 @@
 angular.module('mishkaBeerApp')
-    .directive('maltedit', function () {
+    .directive('maltedit', ['$mskConstants', function ($mskConstants) {
         function link(scope, element, attrs, ngCtrl) {
+
+            scope.$mskConstants = $mskConstants;
 
             if (scope.malt == undefined) {
                 scope.maltOriginal = {
@@ -32,32 +34,6 @@ angular.module('mishkaBeerApp')
                 return !angular.equals(scope.maltOriginal, scope.editdata);
             }
 
-            scope.MaltTypes = [
-                {
-                    code: "malt",
-                    name: "entities.malt.type.values.malt"
-        },
-                {
-                    code: "raw",
-                    name: "entities.malt.type.values.raw"
-        },
-                {
-                    code: "sugar",
-                    name: "entities.malt.type.values.sugar"
-        }
-    ];
-
-            scope.MashNecessary = [
-                {
-                    code: true,
-                    name: "entities.malt.mash.values.true"
-        },
-                {
-                    code: false,
-                    name: "entities.malt.mash.values.false"
-        }
-    ];
-
         }
         return {
             templateUrl: '../components/ingredients/malt/maltedit.html',
@@ -71,4 +47,4 @@ angular.module('mishkaBeerApp')
             },
             link: link
         };
-    });
+    }]);

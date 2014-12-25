@@ -1,8 +1,7 @@
 'use strict';
 
 angular.module('mishkaBeerApp')
-    .controller('MaltsCtrl', function ($scope, $http, socket, $translate, $injector) {
-
+    .controller('MaltsCtrl', function ($scope, $http, socket, $translate, $injector, $mskConstants) {
         $scope.editInfos = [];
         $scope.malts = [];
         $scope.messagingService = $injector.get('messagingService');
@@ -51,47 +50,13 @@ angular.module('mishkaBeerApp')
         //
         // Specific malts management
         //
-
-        $scope.MaltTypes = [
-            {
-                code: "malt",
-                name: "entities.malt.type.values.malt"
-        },
-            {
-                code: "raw",
-                name: "entities.malt.type.values.raw"
-        },
-            {
-                code: "sugar",
-                name: "entities.malt.type.values.sugar"
-        }
-    ];
-
-        $scope.MashNecessary = [
-            {
-                code: true,
-                name: "entities.malt.mash.values.true"
-        },
-            {
-                code: false,
-                name: "entities.malt.mash.values.false"
-        }
-    ];
-
         $scope.getNameMaltType = function ($code) {
-            for (var i in $scope.MaltTypes) {
-                if ($scope.MaltTypes[i].code === $code) {
-                    return $scope.MaltTypes[i].name;
+            for (var i in $mskConstants.maltTypes) {
+                if ($mskConstants.maltTypes[i].code === $code) {
+                    return $mskConstants.maltTypes[i].name;
                 }
             }
         }
-
-        this.getMaltTypes = function () {
-            return $scope.MaltTypes;
-        };
-        this.getMashNecessary = function () {
-            return $scope.MashNecessary;
-        };
 
         //
         // Malts services
