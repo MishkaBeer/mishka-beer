@@ -12,7 +12,6 @@ angular.module("mishkaBeerApp").factory("$mskUtilities",
                     name = this.listName;
                     return $http.get(this.apiUrl).success(function ($listReceived) {
                         this.editInfos = [];
-                        this.listItems.concat($listReceived);
                         for (var i = 0; i < $listReceived.length; i++) {
                             this.editInfos.push({
                                 $edit: false,
@@ -46,17 +45,17 @@ angular.module("mishkaBeerApp").factory("$mskUtilities",
                     return $http.delete(this.apiUrl + $item._id);
                 },
                 getInfos: function (id) {
-                    for (var i in this.editInfos) {
-                        if (this.editInfos[i].id == id) {
-                            return this.editInfos[i];
+                    for (var i in editInfos) {
+                        if (editInfos[i].id == id) {
+                            return editInfos[i];
                         }
                     }
                     return null;
                 },
                 closeAll: function () {
                     for (var i = 0; i < editInfos.length; i++) {
-                        this.editInfos[i].$edit = false;
-                        this.editInfos[i].$details = false;
+                        editInfos[i].$edit = false;
+                        editInfos[i].$details = false;
                     }
                 },
                 edit: function ($element) {

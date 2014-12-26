@@ -28,16 +28,16 @@
                             </div>
                         </div>
                         <div class="btn-group">
-                            <button type="button" class="btn" ng-class="listManager.getInfos(malt._id).$edit ? 'active' : ' '" ng-click="edit(malt)"><i class="glyphicon glyphicon-pencil"></i>
+                            <button type="button" class="btn" ng-class="listManager.getInfos(malt._id).$edit ? 'active' : ' '" ng-click="listManager.edit(malt)"><i class="glyphicon glyphicon-pencil"></i>
                             </button>
                             <button type="button" class="btn" ng-click="deleteMalt(malt)"><i class="glyphicon glyphicon-trash"></i>
                             </button>
                         </div>
                     </div>
-                    <div class="panel-body" ng-if="getInfos(malt._id).$edit">
+                    <div class="panel-body" ng-if="listManager.getInfos(malt._id).$edit">
                         <maltedit savefunction="saveMalt" malt="malt" clearform="false" clearform="false" edit="true" />
                     </div>
-                    <div class="panel-body" ng-if="getInfos(malt._id).$details">
+                    <div class="panel-body" ng-if="listManager.getInfos(malt._id).$details">
                         <maltedit savefunction="saveMalt" malt="malt" clearform="false" clearform="false" edit="false" />
                     </div>
                 </li>
