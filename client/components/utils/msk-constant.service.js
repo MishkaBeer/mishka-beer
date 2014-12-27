@@ -1,5 +1,6 @@
 angular.module("mishkaBeerApp").factory("$mskConstants",
     function () {
+        'use strict';
         return {
             // Malt types names/codes correspondance.
             maltTypes: [
