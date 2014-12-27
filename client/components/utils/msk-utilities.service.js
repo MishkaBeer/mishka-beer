@@ -41,7 +41,7 @@ angular.module("mishkaBeerApp").factory("$mskUtilities",
                 return $http.post(manager.apiUrl, $item);
             };
             manager.delete = function ($item) {
-                return $http.delete(tmanager.apiUrl + $item._id);
+                return $http.delete(manager.apiUrl + $item._id);
             };
             manager.getInfos = function (id) {
                 var i;
