@@ -1,7 +1,7 @@
-'use strict';
-
 angular.module('mishkaBeerApp')
     .controller('MaltsCtrl', function ($scope, $http, socket, $translate, $mskNotifications, $mskConstants, $mskUtilities) {
+        'use strict';
+
         $scope.mskNotifications = $mskNotifications;
         $scope.listManager = $mskUtilities.createListEditManager('/api/malts/', 'malt');
 
@@ -9,12 +9,13 @@ angular.module('mishkaBeerApp')
         // Specific malts management
         //
         $scope.getNameMaltType = function ($code) {
-            for (var i in $mskConstants.maltTypes) {
+            var i;
+            for (i = 0; i < $mskConstants.maltTypes.length; i = i + 1) {
                 if ($mskConstants.maltTypes[i].code === $code) {
                     return $mskConstants.maltTypes[i].name;
                 }
             }
-        }
+        };
 
         $scope.changeShowNewMalt = function () {
             if ($scope.newMaltClass === "") {
@@ -22,7 +23,7 @@ angular.module('mishkaBeerApp')
             } else {
                 $scope.newMaltClass = "";
             }
-        }
+        };
 
         $scope.newMaltClass = "";
 
@@ -45,7 +46,7 @@ angular.module('mishkaBeerApp')
                 }).error(function () {
                     $scope.mskNotifications.displayError("entities.malt.error.add");
                 });
-            };
+            }
         };
 
         $scope.deleteMalt = function ($malt) {
