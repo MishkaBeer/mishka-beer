@@ -1,5 +1,10 @@
 {
     "nav-bar": {
+        "receipts": "Recettes",
+        "subreceipts" : {
+            "list": "Recettes",
+            "new": "Nouvelle"
+        },
         "stock": "Stock",
         "home": "Acceuil",
         "brewery": "Brasserie",
