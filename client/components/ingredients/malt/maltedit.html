@@ -2,7 +2,7 @@
     <div class="form-group">
         <div class="col-md-8" ng-class="{ 'has-error' : maltform.name.$invalid && !maltform.name.$pristine }">
             <label class="control-label">{{"entities.malt.name.title" | translate }}*</label>
-            <input type="text" name="name" class="form-control" ng-model="editdata.name" placeholder="{{edit ? ('entities.malt.name.example' | translate) : ''}}" ng-if="edit" required />
+            <input type="text" name="name" class="form-control" ng-model="editdata.name" placeholder="{{edit ? ('entities.malt.name.example' | translate) : ''}}" ng-if="edit" mskfocus="maltform.$pristine" required/>
             <p class="msk-input-noedit" ng-if="!edit">{{editdata.name}}</p>
             <p class="help-block" ng-if="maltform.name.$error.required && !maltform.name.$pristine">{{"entities.malt.name.required.error" | translate}}</p>
         </div>
@@ -58,7 +58,7 @@
             <button type="submit" ng-click="save(maltform)" class="btn btn-success" ng-disabled="!maltModified()">
                 <i class="glyphicon glyphicon-ok"></i> {{"entities.actions.save.name" | translate}}
             </button>
-            <button class="btn btn-danger" ng-click="resetData(); maltform.$setPristine();" ng-disabled="!maltModified() && maltform.$pristine">
+            <button class="btn btn-danger" ng-click="resetData();" ng-disabled="!maltModified() && maltform.$pristine">
                 <i class="glyphicon glyphicon-remove"></i> {{"entities.actions.cancel" | translate}}
             </button>
         </div>

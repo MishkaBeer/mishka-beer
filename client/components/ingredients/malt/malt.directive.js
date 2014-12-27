@@ -16,6 +16,7 @@ angular.module('mishkaBeerApp')
 
             scope.resetData = function () {
                 scope.editdata = angular.copy(scope.maltOriginal);
+                scope.maltform.$setPristine();
             }
 
             scope.resetData();
@@ -24,8 +25,7 @@ angular.module('mishkaBeerApp')
                 if ($editForm.$valid) {
                     scope.savefunction(scope.editdata);
                     if (scope.clearform) {
-                        scope.editdata = {}
-                        scope.edit = true;
+                        scope.resetData();
                     }
                 }
             }
