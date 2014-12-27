@@ -41,6 +41,7 @@ body {
 @import 'brewery/brewery.scss';
 @import 'hops/hops.scss';
 @import 'malts/malts.scss';
+@import 'receipts/list-receipts/list-receipts.scss';
 @import 'stock/stock.scss';
 @import 'yeasts/yeasts.scss';
 @import 'modal/modal.scss';
@@ -103,18 +104,18 @@ body {
 
 // List for ingredients
 .msk-list {
-    @extend .col-md-12, .col-lg-12, .col-sm-12, .nav, .nav-tabs, .nav-stacked, .no-padding;
     padding: 0px !important;
+}
+
+// List for ingredients
+.msk-list li{
+    @extend .col-md-12, .col-lg-12, .col-sm-12, .nav, .nav-tabs, .nav-stacked, .no-padding;
 }
 
 .msk-list-item {
     @extend .col-md-12, .col-lg-12, .col-sm-12, .container;
     min-height: 40px;
     padding: 0px !important;
-}
-.msk-list-item:hover {
-    background-color: #f5f5f5;
-    cursor: pointer;
 }
 
 .msk-list-item .btn-group {
@@ -136,6 +137,11 @@ body {
     padding-top: 10px !important;
     padding-bottom: 10px !important;
     padding-left: 10px !important;
+}
+
+.msk-list-txt:hover {
+    background-color: #f5f5f5;
+    cursor: pointer;
 }
 
 .msk-list-addbtn {
