@@ -18,7 +18,7 @@
             <ul class="msk-list" ng-repeat="malt in listManager.items | orderBy:'name'">
                 <li ng-class="listManager.getInfos(malt._id).$edit || listManager.getInfos(malt._id).$details ?'panel panel-default' : ' '">
                     <div class="msk-list-item" ng-class="listManager.getInfos(malt._id).$edit || listManager.getInfos(malt._id).$details ? 'panel-heading' : ' '">
-                        <div class="msk-list-txt"  ng-click="show(malt)">
+                        <div class="msk-list-txt"  ng-click="listManager.show(malt)">
                             <div class="col-md-8 col-sm-8 no-padding-left">{{malt.name}}</div>
                             <div class="col-md-2 col-sm-2 no-padding-left">
                                 {{getNameMaltType(malt.type) | translate}}
