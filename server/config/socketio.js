@@ -18,13 +18,13 @@ function onConnect(socket) {
   });
 
   // Insert sockets below
+  require('../api/receipt/receipt.socket').register(socket);
   require('../api/storagelocation/storagelocation.socket').register(socket);
   require('../api/brewery/brewery.socket').register(socket);
   require('../api/stock/stock.socket').register(socket);
   require('../api/yeast/yeast.socket').register(socket);
   require('../api/malt/malt.socket').register(socket);
   require('../api/hop/hop.socket').register(socket);
-  require('../api/thing/thing.socket').register(socket);
 }
 
 module.exports = function (socketio) {
