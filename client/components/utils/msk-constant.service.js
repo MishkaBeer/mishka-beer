@@ -25,6 +25,8 @@ angular.module("mishkaBeerApp").factory("$mskConstants",
                 {
                     code: false,
                     name: "entities.malt.mash.values.false"
-                }]
+                }],
+            // Url for malt server api
+            maltApiURI: '/api/malts/'
         };
     });

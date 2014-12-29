@@ -3,7 +3,7 @@ angular.module('mishkaBeerApp')
         'use strict';
 
         $scope.mskNotifications = $mskNotifications;
-        $scope.listManager = $mskUtilities.createListEditManager('/api/malts/', 'malt');
+        $scope.listManager = $mskUtilities.createListEditManager($mskConstants.maltApiURI, 'malt');
 
         //
         // Specific malts management
